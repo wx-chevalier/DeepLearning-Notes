@@ -20,8 +20,6 @@
 
 <!-- ABOUT THE PROJECT -->
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/8/1/Deep-learningheader.jpg)
-
 # 深度学习实战
 
 在深度学习篇中，我们将了解深度学习的历史与理论。深度学习的起点即是所谓的神经网络（Neural Network）。
@@ -49,8 +47,6 @@ $$
 在通常的理解中，一个足够宽的网络，是能够拟合任何函数的。而一个深层网络，则能够用更少的参数来拟合该函数，因为深层的神经元可以获取比浅层神经元更复杂的特征表示。
 
 而根据网络层级间不同的反馈方式，我们又可以将其区分为前馈神经网络、反馈神经网络、双向神经网络以及循环神经网络等：
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/8/1/A6B65EE8-F5B8-4C13-9F86-6573A6256354.png)
 
 # CNN | 卷积网络
 

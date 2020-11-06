@@ -3,7 +3,7 @@
 基于 Python 脚本语言开发的数字图片处理包，比如 PIL, Pillow, opencv, scikit-image 等。
 PIL 和 Pillow 只提供最基础的数字图像处理，功能有限；opencv 实际上是一个 c++库，只是提供了 python 接口，更新速度非常慢。scikit-image 是基于 scipy 的一款图像处理包，它将图片作为 numpy 数组进行处理，正好与 matlab 一样，因此，我们最终选择 scikit-image 进行数字图像处理。
 
-skimage 包的全称是 scikit-image SciKit (toolkit for SciPy) ，它对 scipy.ndimage 进行了扩展，提供了更多的图片处理功能。它是由 python 语言编写的，由 scipy 社区开发和维护。skimage 包由许多的子模块组成，各个子模块提供不同的功能。主要子模块列表如下：
+skimage 包的全称是 scikit-image SciKit (toolkit for SciPy)，它对 scipy.ndimage 进行了扩展，提供了更多的图片处理功能。它是由 python 语言编写的，由 scipy 社区开发和维护。skimage 包由许多的子模块组成，各个子模块提供不同的功能。主要子模块列表如下：
 
 ```s
 子模块名称　                主要实现功能

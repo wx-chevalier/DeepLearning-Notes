@@ -154,7 +154,7 @@ BERT 的主要贡献有以下几个方面
 
 - 目标函数：对比语言模型任务只做预测下一个位置的单词，想要训练包含更多信息的语言模型，就需要让语言模型完成更复杂的任务，BERT 主要完成完形填空和句对预测的任务，即两个 loss：一个是 Masked Language Model，另一个是 Next Sentence Prediction。
 
-# Nav | 导读
+# Nav | 关联导航
 
 # About | 关于
 

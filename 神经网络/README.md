@@ -12,6 +12,6 @@ Geoff Hinton covered exactly this topic in his coursera course on neural nets. T
 
 其导数 $f'(x)=f(x)\*[1-f(x)]$，可以节约计算时间
 
-# TBD
+# Links
 
 - https://www.zhihu.com/question/314879954/answer/638380202

@@ -13,8 +13,8 @@
   - [6 神经网络 [7]](/神经网络/README.md)
     - [6.1 丢弃法](/神经网络/丢弃法.md)
     - 6.2 反向传播 [1]
-      - 6.2.1 参考资料 [1]
-        - [6.2.1.1 A Step by Step Backpropagation Example](/神经网络/反向传播/.more/A%20Step%20by%20Step%20Backpropagation%20Example.md)
+      - 6.2.1 999.参考资料 [1]
+        - [6.2.1.1 A Step by Step Backpropagation Example](/神经网络/反向传播/999.参考资料/A%20Step%20by%20Step%20Backpropagation%20Example.md)
     - [6.3 多层神经网络](/神经网络/多层神经网络.md)
     - [6.4 损失函数](/神经网络/损失函数/README.md)
       

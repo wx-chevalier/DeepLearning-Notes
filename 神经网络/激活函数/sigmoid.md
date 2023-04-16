@@ -8,7 +8,7 @@ $$
 
 sigmoid 函数在早期的神经网络中较为普遍，但它目前逐渐被更简单的 ReLU 函数取代。
 
-![](https://i.postimg.cc/k4nYPfRz/image.png)
+![](https://assets.ng-tech.icu/item/20230416204701.png)
 
 依据链式法则，sigmoid 函数的导数为：
 

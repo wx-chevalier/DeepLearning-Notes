@@ -66,7 +66,7 @@ $$
 
 一个卷积核是一个模式提取器，多个卷积核就是多个模式提取器。通过多个特征提取器对原始数据做特征提取转换，就构成了一层卷积。
 
-![](https://i.postimg.cc/pT8cdfyQ/image.png)
+![](https://assets.ng-tech.icu/item/20230417211021.png)
 
 Alex Net, 因为 GPU 内存的原因，Alex 使用了两块 GPU 对模型做了切割，本质上的卷积层是用于特征提取，最大池化层用于提取强特征及减少参数，全连接层则是所有高级特征参与到最后分类决策中去。
 
@@ -74,7 +74,7 @@ Alex Net, 因为 GPU 内存的原因，Alex 使用了两块 GPU 对模型做了�
 
 CNN 是对空间上特征的提取，RNN 则是对时序上特征的提取。在直觉上，我们理解 RNN 网络是一个可模拟任何函数的一个神经网络(action)，加上同时有一份自己的历史存储(memory)，action+memory 两者让 RNN 成为了一个图灵机器。
 
-![](https://i.postimg.cc/prHG5mnw/image.png)
+![](https://assets.ng-tech.icu/item/20230417210948.png)
 
 在 RNN 中，$x_1$, $x_2$, $x_3$, $x_t$ 是在时序上不一样的输入，而 $V$，$U$，$W$ 三个矩阵则是共享。同时 RNN 网络中保存了自己的状态 $S$。$S$ 随着输入而改变，不同的输入/不同时刻的输入或多或少影响 RNN 网络的状态 $S$。而 RNN 网络的状态 $S$ 则决定最后的输出。
 

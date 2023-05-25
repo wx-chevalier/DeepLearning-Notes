@@ -34,7 +34,7 @@
 
 神经网络层的基本组成成员为神经元，神经元包含两部分，一部分是上一层网络输出和当前网络层参数的一个线性乘积，另外一部分是线性乘积的非线性转换；如果缺少非线性转换，则多层线性乘积可以转化为一层的线性乘积。
 
-![](https://i.postimg.cc/d3NJmvtq/image.png)
+![](https://assets.ng-tech.icu/item/20230525221608.png)
 
 $$
 \begin{array}{l}{\mathrm{H}(\mathrm{in})=\Sigma=\mathrm{W}_{1} \star \mathrm{x}_{1}+\mathrm{W}_{2} \star \mathrm{x}_{2}+\mathrm{W}_{3} \star \mathrm{x}_{3}+\mathrm{b}} \\ {\mathrm{H}(\mathrm{out})=\sigma(\Sigma)}\end{array}

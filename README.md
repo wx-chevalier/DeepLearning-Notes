@@ -42,7 +42,7 @@ $$
 
 一个神经网络结构通常包含输入层，隐藏层，输出层。输入层是我们的 特征（features），输出层是我们的预测（prediction）。神经网络的目的是拟合一个函数 $f*: features -> prediction$，在训练期间，通过减小 prediction 和 实际 label 的差异的这种方式, 来更改网络参数，来使当前的网络能逼近于理想的函数 $f*$。而对于仅有单个隐藏层的神经网络，我们称为浅层神经网络：
 
-![](https://i.postimg.cc/fWqsPzDs/image.png)
+![](https://assets.ng-tech.icu/item/20230526135859.png)
 
 相对于浅层网络结构，有两层，三层及以上隐藏层的我们就可以称为深度网络：
 

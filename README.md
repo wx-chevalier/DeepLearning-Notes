@@ -88,7 +88,7 @@ RNN 的问题是非线性操作 $σ$ 的存在且每一步间通过连乘操作�
 
 LSTM 本质上是矩阵的运算，后续 LSTM 的变种 GRU 如下：
 
-![](https://i.postimg.cc/9QnLt87t/image.png)
+![](https://assets.ng-tech.icu/item/20230616143306.png)
 
 # NLP | 自然语言处理
 
@@ -98,7 +98,7 @@ CNN 在计算机识别领域中应用广泛，其捕捉局部特征的能力非�
 
 从直观上理解，TextCNN 通过一维卷积来获取句子中 n-gram 的特征表示。TextCNN 对文本浅层特征的抽取能力很强，在短文本领域如搜索、对话领域专注于意图分类时效果很好，应用广泛，且速度快，一般是首选；对长文本领域，TextCNN 主要靠 filter 窗口抽取特征，在长距离建模方面能力受限，且对语序不敏感。
 
-![](https://i.postimg.cc/W3MSVsfX/image.png)
+![](https://assets.ng-tech.icu/item/20230616143330.png)
 
 文本卷积与图像卷积的不同之处在于只在文本序列的一个方向做卷积。对句子单词每个可能的窗口做卷积操作得到特征图(feature map)。
 
@@ -114,11 +114,11 @@ Attention 此前就被用于众多 NLP 的任务，用于定位关键 token 或�
 
 以 N=2 示例，Encoder 阶段：输入“Thinking Machines”，对应词向量,叠加位置向量 Positional Encoding，对每个位置做 Self-Attention 得到; Add&Norm 分两步,residual connection 即,layer Normalization 得到新的,对每个位置分别做 feed forward 全连接和 Add&Norm，得到一个 Encoder Layer 的输出，重复堆叠 2 次，最后将 Encoder Layer 输出到 Decoder 的 Encoder-Decoder Layer 层。
 
-![](https://i.postimg.cc/9f9YPWVC/image.png)
+![](https://assets.ng-tech.icu/item/20230616143356.png)
 
 Decoder 阶段：先是对 Decoder 的输入做 Masked Self-Attention Layer,然后将 Encoder 阶段的输出与 Decoder 第一级的输出做 Encoder-Decoder Attention,最后接 FFN 全连接，堆叠 2 个 Decoder,最后接全连接+Softmax 输出当前位置概率最大的的词。
 
-![](https://i.postimg.cc/Ss7L5DJP/image.png)
+![](https://assets.ng-tech.icu/item/20230616143440.png)
 
 Transformer 的优点：
 
@@ -140,7 +140,7 @@ BERT (Bidirectional Encoder Representations from Transformers)本质来讲是 NL
 
 BERT 网络结构如下所示，BERT 与 Transformer 的 Encoder 网络结构完全相同。假设 Embedding 向量的维度是，输入序列包含 n 个 token，则 BERT 模型一个 layer 的输入是一个的矩阵，而它的输出也同样是一个的矩阵，所以这样 N 层 BERT layer 就可以很方便的首尾串联起来。BERT 的 large model 使用了 N=24 层这样的 Transformer block。
 
-![](https://i.postimg.cc/MpCyphB4/image.png)
+![](https://assets.ng-tech.icu/item/20230616143503.png)
 
 BERT 的主要贡献有以下几个方面
 

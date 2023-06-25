@@ -119,7 +119,7 @@ def get_tokens_and_segments(tokens_a, tokens_b=None):
     return tokens, segments
 ```
 
-BERT 选择 Transformer 编码器作为其双向架构。在 Transformer 编码器中常见是，位置嵌入被加入到输入序列的每个位置。然而，与原始的 Transformer 编码器不同，BERT 使用*可学习的*位置嵌入。总之， 下图表明 BERT 输入序列的嵌入是词元嵌入、片段嵌入和位置嵌入的和。
+BERT 选择 Transformer 编码器作为其双向架构。在 Transformer 编码器中常见是，位置嵌入被加入到输入序列的每个位置。然而，与原始的 Transformer 编码器不同，BERT 使用*可学习的*位置嵌入。总之，下图表明 BERT 输入序列的嵌入是词元嵌入、片段嵌入和位置嵌入的和。
 
 <div align="center">
     <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/69/69-3.png" alt="image" align="center"width="500"/>

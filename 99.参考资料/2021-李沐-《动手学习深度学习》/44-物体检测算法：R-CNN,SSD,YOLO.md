@@ -56,7 +56,7 @@
 
 - 如果有**像素级别的标号**，使用 FCN（fully convolutional network）利用这些信息。可以提升 CNN 的性能
 - **Rol align**。之前的 Rol 进行池化的时候，如果没法整除，可以直接取整。但是像素级别的标号预测的时候，会造成偏差的累积，导致边界预测不准确。未来避免这种情况，使用 Rol align，也就是当没法整除，对每个像素值进行按比例分配。
-- 具体来说，Mask R-CNN 将兴趣区域汇聚层替换为了*兴趣区域对齐*层，使用*双线性插值*（bilinear interpolation）来保留特征图上的空间信息，从而更适于像素级预测。 兴趣区域对齐层的输出包含了所有与兴趣区域的形状相同的特征图。 它们不仅被用于预测每个兴趣区域的类别和边界框，还通过额外的全卷积网络预测目标的像素级位置。
+- 具体来说，Mask R-CNN 将兴趣区域汇聚层替换为了*兴趣区域对齐*层，使用*双线性插值*（bilinear interpolation）来保留特征图上的空间信息，从而更适于像素级预测。兴趣区域对齐层的输出包含了所有与兴趣区域的形状相同的特征图。它们不仅被用于预测每个兴趣区域的类别和边界框，还通过额外的全卷积网络预测目标的像素级位置。
 
 <div align="center">
   <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/44/44-03.png" alt="image" align="center" width=500 />

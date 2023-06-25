@@ -421,7 +421,7 @@ ${\tilde{c}}^{<t>}$，这是代替记忆细胞的候选值，然后我们使用�
 
 ![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/94e871edbd87337937ce374e71d56e42.png)
 
-再提一下，这些式子就是控制**LSTM**行为的主要的式子了（上图编号 1 所示）。像之前一样用图片稍微解释一下，先让我把图画在这里（上图编号 2 所示）。如果图片过于复杂，别担心，我个人感觉式子比图片好理解，但是我画图只是因为它比较直观。这个右上角的图的灵感来自于**Chris Ola**的一篇博客，标题是《理解**LSTM**网络》（**Understanding LSTM Network**），这里的这张图跟他博客上的图是很相似的，但关键的不同可能是这里的这张图用了$a^{<t-1>}$和$x^{<t>}$来计算所有门值（上图编号 3，4 所示），在这张图里是用$a^{<t-1>}$， $x^{<t>}$一起来计算遗忘门$\Gamma_{f}$的值，还有更新门$\Gamma_{u}$以及输出门$\Gamma_{o}$（上图编号 4 所示）。然后它们也经过**tanh**函数来计算${\tilde{c}}^{<t>}$（上图编号 5 所示），这些值被用复杂的方式组合在一起，比如说元素对应的乘积或者其他的方式来从之前的$c^{<t-1>}$（上图编号 6 所示）中获得$c^{<t>}$（上图编号 7 所示）。
+再提一下，这些式子就是控制**LSTM**行为的主要的式子了（上图编号 1 所示）。像之前一样用图片稍微解释一下，先让我把图画在这里（上图编号 2 所示）。如果图片过于复杂，别担心，我个人感觉式子比图片好理解，但是我画图只是因为它比较直观。这个右上角的图的灵感来自于**Chris Ola**的一篇博客，标题是《理解**LSTM**网络》（**Understanding LSTM Network**），这里的这张图跟他博客上的图是很相似的，但关键的不同可能是这里的这张图用了$a^{<t-1>}$和$x^{<t>}$来计算所有门值（上图编号 3，4 所示），在这张图里是用$a^{<t-1>}$，$x^{<t>}$一起来计算遗忘门$\Gamma_{f}$的值，还有更新门$\Gamma_{u}$以及输出门$\Gamma_{o}$（上图编号 4 所示）。然后它们也经过**tanh**函数来计算${\tilde{c}}^{<t>}$（上图编号 5 所示），这些值被用复杂的方式组合在一起，比如说元素对应的乘积或者其他的方式来从之前的$c^{<t-1>}$（上图编号 6 所示）中获得$c^{<t>}$（上图编号 7 所示）。
 
 这里其中一个元素很有意思，如你在这一堆图（上图编号 8 所示的一系列图片）中看到的，这是其中一个，再把他们连起来，就是把它们按时间次序连起来，这里（上图编号 9 所示）输入$x^{<1>}$，然后$x^{<2>}$，$x^{<3>}$，然后你可以把这些单元依次连起来，这里输出了上一个时间的$a$，$a$会作为下一个时间步的输入，$c$同理。在下面这一块，我把图简化了一下（相对上图编号 2 所示的图有所简化）。然后这有个有意思的事情，你会注意到上面这里有条线（上图编号 10 所示的线），这条线显示了只要你正确地设置了遗忘门和更新门，**LSTM**是相当容易把$c^{<0>}$的值（上图编号 11 所示）一直往下传递到右边，比如$c^{<3>} = c^{<0>}$（上图编号 12 所示）。这就是为什么**LSTM**和**GRU**非常擅长于长时间记忆某个值，对于存在记忆细胞中的某个值，即使经过很长很长的时间步。
 
@@ -458,10 +458,10 @@ $ dW_o = d\Gamma_o^{\langle t \rangle} \* \begin{pmatrix} a*{prev} \\ x_t\end{pm
 
 最后，计算隐藏状态、记忆状态和输入的偏导数：
 
-$ da\_{prev} = W*f^T*d\Gamma_f^{\langle t \rangle} + W_u^T * d\Gamma_u^{\langle t \rangle}+ W_c^T * d\tilde c^{\langle t \rangle} + W*o^T * d\Gamma_o^{\langle t \rangle} \tag{9}$
+$ da\_{prev} = W*f^T*d\Gamma_f^{\langle t \rangle} + W_u^T _ d\Gamma_u^{\langle t \rangle}+ W_c^T _ d\tilde c^{\langle t \rangle} + W*o^T * d\Gamma_o^{\langle t \rangle} \tag{9}$
 
 $ dc*{prev} = dc*{next}\Gamma*f^{\langle t \rangle} + \Gamma_o^{\langle t \rangle} \* (1- \tanh(c*{next})^2)*\Gamma_f^{\langle t \rangle}*da\_{next} \tag{10}$
-$ dx^{\langle t \rangle} = W*f^T*d\Gamma_f^{\langle t \rangle} + W_u^T * d\Gamma_u^{\langle t \rangle}+ W_c^T * d\tilde c*t + W_o^T * d\Gamma_o^{\langle t \rangle}\tag{11} $
+$ dx^{\langle t \rangle} = W*f^T*d\Gamma_f^{\langle t \rangle} + W_u^T _ d\Gamma_u^{\langle t \rangle}+ W_c^T _ d\tilde c*t + W_o^T * d\Gamma_o^{\langle t \rangle}\tag{11} $
 
 这就是**LSTM**，我们什么时候应该用**GRU**？什么时候用**LSTM**？这里没有统一的准则。而且即使我先讲解了**GRU**，在深度学习的历史上，**LSTM**也是更早出现的，而**GRU**是最近才发明出来的，它可能源于**Pavia**在更加复杂的**LSTM**模型中做出的简化。研究者们在很多不同问题上尝试了这两种模型，看看在不同的问题不同的算法中哪个模型更好，所以这不是个学术和高深的算法，我才想要把这两个模型展示给你。
 

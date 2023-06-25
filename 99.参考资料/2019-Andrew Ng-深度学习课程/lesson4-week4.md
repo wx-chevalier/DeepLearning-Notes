@@ -316,7 +316,7 @@ $J( G) = a J_{\text{content}}( C,G) + \beta J_{\text{style}}(S,G)$
 
 最后我们用两个超参数$a$和$\beta$来来确定内容代价和风格代价，两者之间的权重用两个超参数来确定。两个代价的权重似乎是多余的，我觉得一个超参数似乎就够了，但提出神经风格迁移的原始作者使用了两个不同的超参数，我准备保持一致。
 
-关于神经风格迁移算法我将在接下来几段视频中展示的，是基于**Leon Gatys**， **Alexandra Ecker**和**Matthias Bethge**的这篇论文。这篇论文并不是很难读懂，如果你愿意，看完这些视频，我也非常推荐你去看看他们的论文。
+关于神经风格迁移算法我将在接下来几段视频中展示的，是基于**Leon Gatys**，**Alexandra Ecker**和**Matthias Bethge**的这篇论文。这篇论文并不是很难读懂，如果你愿意，看完这些视频，我也非常推荐你去看看他们的论文。
 
 **Leon A. Gatys, Alexander S. Ecker, Matthias Bethge, (2015). A Neural Algorithm of Artistic Style** (<https://arxiv.org/abs/1508.06576>)
 

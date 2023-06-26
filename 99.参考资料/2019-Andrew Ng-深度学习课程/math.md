@@ -359,9 +359,9 @@ $\Rightarrow r(AB) = r(A);$
 
 **8.分块求逆公式**
 
-$\begin{pmatrix} A & O \\ O & B \\ \end{pmatrix}^{- 1} = \begin{pmatrix} A^{-1} & O \\ O & B^{- 1} \\ \end{pmatrix}$； $\begin{pmatrix} A & C \\ O & B \\\end{pmatrix}^{- 1} = \begin{pmatrix} A^{- 1}& - A^{- 1}CB^{- 1} \\ O & B^{- 1} \\ \end{pmatrix}$；
+$\begin{pmatrix} A & O \\ O & B \\ \end{pmatrix}^{- 1} = \begin{pmatrix} A^{-1} & O \\ O & B^{- 1} \\ \end{pmatrix}$；$\begin{pmatrix} A & C \\ O & B \\\end{pmatrix}^{- 1} = \begin{pmatrix} A^{- 1}& - A^{- 1}CB^{- 1} \\ O & B^{- 1} \\ \end{pmatrix}$；
 
-$\begin{pmatrix} A & O \\ C & B \\ \end{pmatrix}^{- 1} = \begin{pmatrix}  A^{- 1}&{O} \\   - B^{- 1}CA^{- 1} & B^{- 1} \\\end{pmatrix}$； $\begin{pmatrix} O & A \\ B & O \\ \end{pmatrix}^{- 1} =\begin{pmatrix} O & B^{- 1} \\ A^{- 1} & O \\ \end{pmatrix}$
+$\begin{pmatrix} A & O \\ C & B \\ \end{pmatrix}^{- 1} = \begin{pmatrix}  A^{- 1}&{O} \\   - B^{- 1}CA^{- 1} & B^{- 1} \\\end{pmatrix}$；$\begin{pmatrix} O & A \\ B & O \\ \end{pmatrix}^{- 1} =\begin{pmatrix} O & B^{- 1} \\ A^{- 1} & O \\ \end{pmatrix}$
 
 这里$A$，$B$均为可逆方阵。
 
@@ -569,7 +569,7 @@ $\Leftrightarrow$存在可逆阵$P$使$A = P^{T}P$
 
 $\Leftrightarrow$存在正交矩阵$Q$，使$Q^{T}{AQ} = Q^{- 1}{AQ} =\begin{pmatrix} \lambda_{1} & & \\ \begin{matrix}  & \\  & \\ \end{matrix} &\ddots & \\  & & \lambda_{n} \\ \end{pmatrix},$
 
-其中$\lambda_{i} > 0,i = 1,2,\cdots,n.$正定$\Rightarrow {kA}(k >0),A^{T},A^{- 1},A^{*}$正定； $|A| > 0,A$可逆；$a_{{ii}} >0$，且$|A_{{ii}}| > 0$ 。
+其中$\lambda_{i} > 0,i = 1,2,\cdots,n.$正定$\Rightarrow {kA}(k >0),A^{T},A^{- 1},A^{*}$正定；$|A| > 0,A$可逆；$a_{{ii}} >0$，且$|A_{{ii}}| > 0$ 。
 
 ### 概率论和数理统计
 

@@ -368,7 +368,7 @@ $L(a,y)=-(y\log (a)+(1-y)\log (1-a))$
 
 $w:=w-a \frac{\partial J(w,b)}{\partial w}$，$b:=b-a\frac{\partial J(w,b)}{\partial b}$
 
-![2017-08-16 16-05-25](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/03f5f96177ab15d5ead8298ba50300ac.jpg)
+![2017~08-16 16-05-25](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/03f5f96177ab15d5ead8298ba50300ac.jpg)
 
 如图：在这个公式的外侧画上长方形。然后计算：
 $\hat{y}=a=\sigma(z)$
@@ -405,7 +405,7 @@ $db=dz$ 来计算$db$，
 更新${{w}_{2}}={{w}_{2}}-a d{{w}_{2}}$，
 更新$b=b-\alpha db$。
 这就是关于单个样本实例的梯度下降算法中参数更新一次的步骤。
-![2017-08-16 16-07-49](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/6403f00e5844c3100f4aa9ff043e2319.jpg)
+![2017~08-16 16-07-49](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/6403f00e5844c3100f4aa9ff043e2319.jpg)
 
 现在你已经知道了怎样计算导数，并且实现针对单个训练样本的逻辑回归的梯度下降算法。但是，训练逻辑回归模型不仅仅只有一个训练样本，而是有$m$个训练样本的整个训练集。因此在下一节视频中，我们将这些思想应用到整个训练样本集中，而不仅仅只是单个样本上。
 

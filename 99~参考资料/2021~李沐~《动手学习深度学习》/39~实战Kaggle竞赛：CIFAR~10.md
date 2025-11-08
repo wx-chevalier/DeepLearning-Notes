@@ -252,7 +252,7 @@ train(net, train_iter, valid_iter, num_epochs, lr, wd, devices, lr_period,
 ```
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/39/39-01.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/39/39-01.png" alt="image" align="center"width="500"/>
 </div>
 
 ### 8.Q&A

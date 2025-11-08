@@ -34,7 +34,7 @@
 - 使用 Rol 池化层对每个锚框（将在原图片中搜索到的锚框，映射到 CNN 得到的结果上），生成固定长度的特征
 
   <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/44/44-01.png" alt="image" align="center" width=500 />
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/44/44-01.png" alt="image" align="center" width=500 />
   </div>
 
 #### 1.3 Faster RCNN
@@ -49,7 +49,7 @@
   4. 使用非极大值抑制，从预测类别为目标的预测边界框中移除相似的结果。最终输出的预测边界框即是兴趣区域汇聚层所需的提议区域。
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/44/44-02.png" alt="image" align="center" width=500 />
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/44/44-02.png" alt="image" align="center" width=500 />
 </div>
 
 #### 1.4 Mask RCNN
@@ -59,7 +59,7 @@
 - 具体来说，Mask R-CNN 将兴趣区域汇聚层替换为了*兴趣区域对齐*层，使用*双线性插值*（bilinear interpolation）来保留特征图上的空间信息，从而更适于像素级预测。兴趣区域对齐层的输出包含了所有与兴趣区域的形状相同的特征图。它们不仅被用于预测每个兴趣区域的类别和边界框，还通过额外的全卷积网络预测目标的像素级位置。
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/44/44-03.png" alt="image" align="center" width=500 />
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/44/44-03.png" alt="image" align="center" width=500 />
 </div>
 
 #### 1.5 总结
@@ -82,7 +82,7 @@
   - 对每个锚框预测类别和边缘框
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/44/44-04.png" alt="image" align="center" width=500 />
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/44/44-04.png" alt="image" align="center" width=500 />
 </div>
 
 - 总结

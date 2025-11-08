@@ -171,7 +171,7 @@ Fri Jan 14 03:23:18 2022
 
   - 复制：如果我们要计算`X + Y`，我们需要决定在哪里执行这个操作。例如，如下图所示，我们可以将`X`传输到第二个 GPU 并在那里执行操作。*不要*简单地`X`加上`Y`，因为这会导致异常，运行时引擎不知道该怎么做：它在同一设备上找不到数据会导致失败。由于`Y`位于第二个 GPU 上，所以我们需要将`X`移到那里，然后才能执行相加运算。
 
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/17/17-01.png" alt="image" style="zoom: 67%;" />
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/17/17-01.png" alt="image" style="zoom: 67%;" />
 
   - ```python
     """将gpu(0)中的X复制到gpu(1)中的Z"""
@@ -250,7 +250,7 @@ GPU 供应商通常每一到两年发布一代，例如 2017 年发布的 GTX 10
 
 下图比较了各种 GTX 900、GTX 1000 和 RTX 2000 系列的（GFlops）和价格（Price）。价格是维基百科上的建议价格。
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/17/17-02.png" alt="image" style="zoom: 50%;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/17/17-02.png" alt="image" style="zoom: 50%;" />
 
 我们可以看到很多事情：
 
@@ -258,6 +258,6 @@ GPU 供应商通常每一到两年发布一代，例如 2017 年发布的 GTX 10
 2. GTX 1000 系列的性价比大约是 900 系列的两倍。
 3. 对于 RTX 2000 系列，浮点计算能力是价格的“仿射”函数。
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/17/17-03.png" alt="image" style="zoom: 50%;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/17/17-03.png" alt="image" style="zoom: 50%;" />
 
 上图显示了能耗与计算量基本成线性关系。其次，后一代更有效率。这似乎与对应于 RTX 2000 系列的图表相矛盾。然而，这是 TensorCore 不成比例的大能耗的结果。

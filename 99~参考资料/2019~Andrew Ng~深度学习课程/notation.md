@@ -60,13 +60,13 @@ _此笔记中使用的数学符号参考自《深度学习》和 Deep learning s
 
 ### 详细的网络
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/fe20e8766346d4e8d212e792888dd6fb.jpg)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/fe20e8766346d4e8d212e792888dd6fb.jpg)
 
 常用于神经网络的表示,为了更好的审美，我们省略了一些在边上的参数的细节(如$w_{ij}^{[l]}$ 和$b_{i}^{[l]}$等)。
 
 ### 简化网络
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/08a2f8fea114cbc35c70d45d03a34d52.jpg)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/08a2f8fea114cbc35c70d45d03a34d52.jpg)
 
 两层神经网络的更简单的表示。
 

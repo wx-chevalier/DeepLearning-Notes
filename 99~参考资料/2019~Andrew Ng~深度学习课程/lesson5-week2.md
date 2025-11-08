@@ -6,7 +6,7 @@
 
 上周我们学习了**RNN**、**GRU**单元和**LSTM**单元。本周你会看到我们如何把这些知识用到**NLP**上，用于自然语言处理，深度学习已经给这一领域带来了革命性的变革。其中一个很关键的概念就是词嵌入（**word embeddings**），这是语言表示的一种方式，可以让算法自动的理解一些类似的词，比如男人对女人，比如国王对王后，还有其他很多的例子。通过词嵌入的概念你就可以构建**NLP**应用了，即使你的模型标记的训练集相对较小。这周的最后我们会消除词嵌入的偏差，就是去除不想要的特性，或者学习算法有时会学到的其他类型的偏差。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/68d7c930146724f39782cb57d33161e9.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/68d7c930146724f39782cb57d33161e9.png)
 
 现在我们先开始讨论词汇表示，目前为止我们一直都是用词汇表来表示词，上周提到的词汇表，可能是 10000 个单词，我们一直用**one-hot**向量来表示词。比如如果**man**（上图编号 1 所示）在词典里是第 5391 个，那么就可以表示成一个向量，只在第 5391 处为 1（上图编号 2 所示），我们用$O_{5391}$代表这个量，这里的$O$代表**one-hot**。接下来，如果**woman**是编号 9853（上图编号 3 所示），那么就可以用$O_{9853}$来表示，这个向量只在 9853 处为 1（上图编号 4 所示），其他为 0，其他的词**king**、**queen**、**apple**、**orange**都可以这样表示出来这种表示方法的一大缺点就是它把每个词孤立起来，这样使得算法对相关词的泛化能力不强。
 
@@ -14,7 +14,7 @@
 
 换一种表示方式会更好，如果我们不用**one-hot**表示，而是用特征化的表示来表示每个词，**man**，**woman**，**king**，**queen**，**apple**，**orange**或者词典里的任何一个单词，我们学习这些词的特征或者数值。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ce30c9ae7912bdb3562199bf85eca1cd.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ce30c9ae7912bdb3562199bf85eca1cd.png)
 
 举个例子，对于这些词，比如我们想知道这些词与**Gender**（**性别**）的关系。假定男性的性别为-1，女性的性别为+1，那么**man**的性别值可能就是-1，而**woman**就是-1。最终根据经验**king**就是-0.95，**queen**是+0.97，**apple**和**orange**没有性别可言。
 
@@ -31,7 +31,7 @@
 
 后面的几个视频，我们会找到一个学习词嵌入的方式，这里只是希望你能理解这种高维特征的表示能够比**one-hot**更好的表示不同的单词。而我们最终学习的特征不会像这里一样这么好理解，没有像第一个特征是性别，第二个特征是高贵，第三个特征是年龄等等这些，新的特征表示的东西肯定会更难搞清楚。尽管如此，接下来要学的特征表示方法却能使算法高效地发现**apple**和**orange**会比**king**和**orange**，**queen**和**orange**更加相似。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/59fb45cfdf7faa53571ec7b921b78358.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/59fb45cfdf7faa53571ec7b921b78358.png)
 
 如果我们能够学习到一个 300 维的特征向量，或者说 300 维的词嵌入，通常我们可以做一件事，把这 300 维的数据嵌入到一个二维空间里，这样就可以可视化了。常用的可视化算法是**t-SNE 算法**，来自于**Laurens van der Maaten** 和 **Geoff Hinton**的论文。如果观察这种词嵌入的表示方法，你会发现**man**和**woman**这些词聚集在一块（上图编号 1 所示），**king**和**queen**聚集在一块（上图编号 2 所示），这些都是人，也都聚集在一起（上图编号 3 所示）。动物都聚集在一起（上图编号 4 所示），水果也都聚集在一起（上图编号 5 所示），像 1、2、3、4 这些数字也聚集在一起（上图编号 6 所示）。如果把这些生物看成一个整体，他们也聚集在一起（上图编号 7 所示）。
 
@@ -45,13 +45,13 @@
 
 我们从一个例子开始，我们继续用命名实体识别的例子，如果你要找出人名，假如有一个句子：“**Sally Johnson is an orange farmer.**”（**Sally Johnson 是一个种橙子的农民**），你会发现**Sally Johnson**就是一个人名，所以这里的输出为 1。之所以能确定**Sally Johnson**是一个人名而不是一个公司名，是因为你知道种橙子的农民一定是一个人，前面我们已经讨论过用**one-hot**来表示这些单词，$x^{<1>}$ ，$x^{< 2 >}$等等。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/b4bf4b0cdcef0c9d021707c47d5aecda.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/b4bf4b0cdcef0c9d021707c47d5aecda.png)
 
 但是如果你用特征化表示方法，嵌入的向量，也就是我们在上个视频中讨论的。那么用词嵌入作为输入训练好的模型，如果你看到一个新的输入：“**Robert Lin is an apple farmer.**”（**Robert Lin 是一个种苹果的农民**），因为知道**orange**和**apple**很相近，那么你的算法很容易就知道**Robert Lin**也是一个人，也是一个人的名字。一个有意思的情况是，要是测试集里这句话不是“**Robert Lin is an apple farmer.**”，而是不太常见的词怎么办？要是你看到：“**Robert Lin is a durian cultivator.**”（**Robert Lin 是一个榴莲培育家**）怎么办？**榴莲**（**durian**）是一种比较稀罕的水果，这种水果在新加坡和其他一些国家流行。如果对于一个命名实体识别任务，你只有一个很小的标记的训练集，你的训练集里甚至可能没有**durian**（**榴莲**）或者**cultivator**（**培育家**）这两个词。但是如果你有一个已经学好的词嵌入，它会告诉你**durian**（**榴莲**）是水果，就像**orange**（**橙子**）一样，并且**cultivator**（**培育家**），做培育工作的人其实跟**farmer**（**农民**）差不多，那么你就有可能从你的训练集里的“**an orange farmer**”（**种橙子的农民**）归纳出“**a durian cultivator**”（**榴莲培育家**）也是一个人。
 
 词嵌入能够达到这种效果，其中一个原因就是学习词嵌入的算法会考察非常大的文本集，也许是从网上找到的，这样你可以考察很大的数据集可以是 1 亿个单词，甚至达到 100 亿也都是合理的，大量的无标签的文本的训练集。通过考察大量的无标签文本，很多都是可以免费下载的，你可以发现**orange**（**橙子**）和**durian**（**榴莲**）相近，**farmer**（**农民**）和**cultivator**（**培育家**）相近。因此学习这种嵌入表达，把它们都聚集在一块，通过读取大量的互联网文本发现了**orange**（**橙子**）和**durian**（**榴莲**）都是水果。接下来你可以把这个词嵌入应用到你的命名实体识别任务当中，尽管你只有一个很小的训练集，也许训练集里有 100,000 个单词，甚至更小，这就使得你可以使用迁移学习，把你从互联网上免费获得的大量的无标签文本中学习到的知识，能够分辨**orange**（**橙子**）、**apple**（**苹果**）和**durian**（**榴莲**）都是水果的知识，然后把这些知识迁移到一个任务中，比如你只有少量标记的训练数据集的命名实体识别任务中。当然了，这里为了简化我只画了单向的**RNN**，事实上如果你想用在命名实体识别任务上，你应该用一个双向的**RNN**，而不是这样一个简单的。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/8a1d58b7ade17208053c10728b2bf3b6.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/8a1d58b7ade17208053c10728b2bf3b6.png)
 
 总结一下，这是如何用词嵌入做迁移学习的步骤。
 
@@ -65,7 +65,7 @@
 
 词嵌入在语言模型、机器翻译领域用的少一些，尤其是你做语言模型或者机器翻译任务时，这些任务你有大量的数据。在其他的迁移学习情形中也一样，如果你从某一任务**A**迁移到某个任务**B**，只有**A**中有大量数据，而**B**中数据少时，迁移的过程才有用。所以对于很多**NLP**任务这些都是对的，而对于一些语言模型和机器翻译则不然。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/43943c791844cc7f077f6c6f98f1f629.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/43943c791844cc7f077f6c6f98f1f629.png)
 
 最后，词嵌入和人脸编码之间有奇妙的关系，你已经在前面的课程学到了关于人脸编码的知识了，如果你上了卷积神经网络的课程的话。你应该还记得对于人脸识别，我们训练了一个**Siamese**网络结构，这个网络会学习不同人脸的一个 128 维表示，然后通过比较编码结果来判断两个图片是否是同一个人脸，这个词嵌入的意思和这个差不多。在人脸识别领域大家喜欢用编码这个词来指代这些向量$f(x^{\left(i \right)})$，$f(x^{\left( j\right)})$（上图编号 1 所示），人脸识别领域和这里的词嵌入有一个不同就是，在人脸识别中我们训练一个网络，任给一个人脸照片，甚至是没有见过的照片，神经网络都会计算出相应的一个编码结果。上完后面几节课，你会更明白，我们学习词嵌入则是有一个固定的词汇表，比如 10000 个单词，我们学习向量$e_{1}$到$e_{10000}$，学习一个固定的编码，每一个词汇表的单词的固定嵌入，这就是人脸识别与我们接下来几节视频要讨论的算法之间的一个不同之处。这里的术语编码（**encoding**）和嵌入（**embedding**）可以互换，所以刚才讲的差别不是因为术语不一样，这个差别就是，人脸识别中的算法未来可能涉及到海量的人脸照片，而自然语言处理有一个固定的词汇表，而像一些没有出现过的单词我们就记为未知单词。
 
@@ -77,7 +77,7 @@
 
 这是一系列你希望词嵌入可以捕捉的单词的特征表示，假如我提出一个问题，**man**如果对应**woman**，那么**king**应该对应什么？你们应该都能猜到**king**应该对应**queen**。能否有一种算法来自动推导出这种关系，下面就是实现的方法。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/12242657bd982acd1d80570cc090b4fe.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/12242657bd982acd1d80570cc090b4fe.png)
 
 我们用一个四维向量来表示**man**，我们用$e_{5391}$来表示，不过在这节视频中我们先把它（上图编号 1 所示）称为$e_{\text{man}}$，而旁边这个（上图编号 2 所示）表示**woman**的嵌入向量，称它为$e_{\text{woman}}$，对**king**和**queen**也是用一样的表示方法。在该例中，假设你用的是四维的嵌入向量，而不是比较典型的 50 到 1000 维的向量。这些向量有一个有趣的特性，就是假如你有向量$e_{\text{man}}$和$e_{\text{woman}}$，将它们进行减法运算，即
 
@@ -135,7 +135,7 @@ $$
 
 （**Mikolov T, Yih W T, Zweig G. Linguistic regularities in continuous space word representations[J]. In HLT-NAACL, 2013.**）
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/5a42eea162ddc75a1d37520618b4bcd2.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/5a42eea162ddc75a1d37520618b4bcd2.png)
 
 让我们来正式地探讨一下应该如何把这种思想写成算法。在图中，词嵌入向量在一个可能有 300 维的空间里，于是单词**man**代表的就是空间中的一个点，另一个单词**woman**代表空间另一个点，单词**king**也代表一个点，还有单词**queen**也在另一点上（上图编号 1 方框内所示的点）。事实上，我们在上个幻灯片所展示的就是向量**man**和**woman**的差值非常接近于向量**king**和**queen**之间的差值，我所画的这个箭头（上图编号 2 所示）代表的就是向量在**gender**（**性别**）这一维的差，不过不要忘了这些点是在 300 维的空间里。为了得出这样的类比推理，计算当**man**对于**woman**，那么**king**对于什么，你能做的就是找到单词**w**来使得，$e_{\text{man}}-e_{\text{woman}}≈ e_{\text{king}} - e_{w}$这个等式成立，你需要的就是找到单词**w**来最大化$e_{w}$与$e_{\text{king}} -  e_{\text{man}} + e_{\text{woman}}$的相似度，即
 
@@ -143,7 +143,7 @@ $Find\ word\ w:argmax \ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{wo
 
 所以我做的就是我把这个$e_{w}$全部放到等式的一边，于是等式的另一边就会是$e_{\text{king}}- e_{\text{man}} +  e_{\text{woman}}$。我们有一些用于测算$e_{w}$和$e_{\text{king}} -e_{\text{man}} +  e_{\text{woman}}$之间的相似度的函数，然后通过方程找到一个使得相似度最大的单词，如果结果理想的话会得到单词**queen**。值得注意的是这种方法真的有效，如果你学习一些词嵌入，通过算法来找到使得相似度最大化的单词**w**，你确实可以得到完全正确的答案。不过这取决于过程中的细节，如果你查看一些研究论文就不难发现，通过这种方法来做类比推理准确率大概只有 30%\~75%，只要算法猜中了单词，就把该次计算视为正确，从而计算出准确率，在该例子中，算法选出了单词**queen**。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/012c07b7692aed382a2875292ea8e81b.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/012c07b7692aed382a2875292ea8e81b.png)
 
 在继续下一步之前，我想再说明一下左边的这幅图（上图编号 1 所示），在之前我们谈到过用**t-SNE**算法来将单词可视化。**t-SNE 算法**所做的就是把这些 300 维的数据用一种非线性的方式映射到 2 维平面上，可以得知**t-SNE**中这种映射很复杂而且很非线性。在进行**t-SNE**映射之后，你不能总是期望使等式成立的关系，会像左边那样成一个平行四边形，尽管在这个例子最初的 300 维的空间内你可以依赖这种平行四边形的关系来找到使等式成立的一对类比，通过**t-SNE 算法**映射出的图像可能是正确的。但在大多数情况下，由于**t-SNE**的非线性映射，你就没法再指望这种平行四边形了，很多这种平行四边形的类比关系在**t-SNE**映射中都会失去原貌。
 
@@ -151,7 +151,7 @@ $Find\ word\ w:argmax \ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{wo
 
 现在我们先不看分母，分子其实就是$u$和$v$的内积。如果 u 和 v 非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，其实就是因为该式是$u$和$v$的夹角的余弦值，所以这个角（下图编号 2 所示）就是 Φ 角，这个公式实际就是计算两向量夹角 Φ 角的余弦。你应该还记得在微积分中，Φ 角的余弦图像是这样的（下图编号 3 所示），所以夹角为 0 度时，余弦相似度就是 1，当夹角是 90 度角时余弦相似度就是 0，当它们是 180 度时，图像完全跑到了相反的方向，这时相似度等于-1，这就是为什么余弦相似度对于这种类比工作能起到非常好的效果。
 距离用平方距离或者欧氏距离来表示:$\left| \left| u - v \right| \right|^{2}$
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/cd01dd1ced86605f712cf080681db022.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/cd01dd1ced86605f712cf080681db022.png)
 **参考资料：余弦相似度**
 为了测量两个词的相似程度，我们需要一种方法来测量两个词的两个嵌入向量之间的相似程度。给定两个向量$u$和$v$，余弦相似度定义如下：
 ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{1}$
@@ -172,13 +172,13 @@ ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{
 和之前一样，假设我们的词汇表含有 10,000 个单词，词汇表里有**a**，**aaron**，**orange**，**zulu**，可能还有一个未知词标记\<**UNK**\>。我们要做的就是学习一个嵌入矩阵$E$，它将是一个 300×10,000 的矩阵，如果你的词汇表里有 10,000 个，或者加上未知词就是 10,001 维。这个矩阵的各列代表的是词汇表中 10,000 个不同的单词所代表的不同向量。假设**orange**的单词编号是 6257（下图编号 1 所示），代表词汇表中第 6257 个单词，我们用符号$O_{6527}$
 来表示这个**one-hot**向量，这个向量除了第 6527 个位置上是 1（下图编号 2 所示），其余各处都为 0，显然它是一个 10,000 维的列向量，它只在一个位置上有 1，它不像图上画的那么短，它的高度应该和左边的嵌入矩阵的宽度相等。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ad1c7b1e85d39f56756c28787ccef892.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ad1c7b1e85d39f56756c28787ccef892.png)
 
 假设这个嵌入矩阵叫做矩阵$E$，注意如果用$E$去乘以右边的**one-hot**向量（上图编号 3 所示），也就是$O_{6527}$，那么就会得到一个 300 维的向量，$E$是 300×10,000 的，$O_{6527}$是 10,000×1 的，所以它们的积是 300×1 的，即 300 维的向量。要计算这个向量的第一个元素，你需要做的是把$E$的第一行（上图编号 4 所示）和$O_{6527}$的整列相乘，不过$O_{6527}$的所有元素都是 0，只有 6257 位置上是 1，最后你得到的这个向量的第一个元素（上图编号 5 所示）就是**orange**这一列下的数字（上图编号 6 所示）。然后我们要计算这个向量的第二个元素，就是把$E$的第二行（上图编号 7 所示）和这个$O_{6527}$相乘，和之前一样，然后得到第二个元素（上图编号 8 所示），以此类推，直到你得到这个向量剩下的所有元素（上图编号 9 所示）。
 
 这就是为什么把矩阵$E$和这个**one-hot**向量相乘，最后得到的其实就是这个 300 维的列，就是单词**orange**下的这一列，它等于$e_{6257}$，这个符号是我们用来表示这个 300×1 的嵌入向量的符号，它表示的单词是**orange**。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/fa320bd001f9dca8ec33c7a426e20d80.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/fa320bd001f9dca8ec33c7a426e20d80.png)
 
 更广泛来说，假如说有某个单词**w**，那么$e_{w}$就代表单词**w**的嵌入向量。同样，$EO_{j}$，$O_{j}$就是只有第$j$个位置是 1 的**one-hot**向量，得到的结果就是$e_{j}$，它表示的是字典中单词**j**的嵌入向量。
 
@@ -192,13 +192,13 @@ ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{
 
 假如你在构建一个语言模型，并且用神经网络来实现这个模型。于是在训练过程中，你可能想要你的神经网络能够做到比如输入：“**I want a glass of orange \_\_\_.**”，然后预测这句话的下一个词。在每个单词下面，我都写上了这些单词对应词汇表中的索引。实践证明，建立一个语言模型是学习词嵌入的好方法，我提出的这些想法是源于**Yoshua Bengio**，**Rejean Ducharme**，**Pascal Vincent**，**Rejean Ducharme**，**Pascal Vincent**还有**Christian Jauvin**。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/31347eca490e0ae8541140fb01c04d72.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/31347eca490e0ae8541140fb01c04d72.png)
 
 下面我将介绍如何建立神经网络来预测序列中的下一个单词，让我为这些词列一个表格，“**I want a glass of orange**”，我们从第一个词**I**开始，建立一个**one-hot**向量表示这个单词**I**。这是一个**one-hot**向量（上图编号 1 所示），在第 4343 个位置是 1，它是一个 10,000 维的向量。然后要做的就是生成一个参数矩阵$E$，然后用$E$乘以$O_{4343}$，得到嵌入向量$e_{4343}$，这一步意味着$e_{4343}$是由矩阵$E$乘以**one-hot**向量得到的（上图编号 2 所示）。然后我们对其他的词也做相同的操作，单词**want**在第 9665 个，我们将$E$与这个**one-hot**向量（$O_{9665}$）相乘得到嵌入向量$e_{9665}$。对其他单词也是一样，**a**是字典中的第一个词，因为**a**是第一个字母，由$O_{1}$得到$e_{1}$。同样地，其他单词也这样操作。
 
 于是现在你有许多 300 维的嵌入向量。我们能做的就是把它们全部放进神经网络中（上图编号 3 所示），经过神经网络以后再通过**softmax**层（上图编号 4 所示），这个**softmax**也有自己的参数，然后这个**softmax**分类器会在 10,000 个可能的输出中预测结尾这个单词。假如说在训练集中有**juice**这个词，训练过程中**softmax**的目标就是预测出单词**juice**，就是结尾的这个单词。这个隐藏层（上图编号 3 所示）有自己的参数，我这里用$W^{\left\lbrack1 \right\rbrack}$和$b^{\left\lbrack 1\right\rbrack}$来表示，这个**softmax**层（上图编号 4 所示）也有自己的参数$W^{\left\lbrack2 \right\rbrack}$和$b^{\left\lbrack 2\right\rbrack}$。如果它们用的是 300 维大小的嵌入向量，而这里有 6 个词，所以用 6×300，所以这个输入会是一个 1800 维的向量，这是通过将这 6 个嵌入向量堆在一起得到的。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/747e619260737ded586ae51b3b4f07d6.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/747e619260737ded586ae51b3b4f07d6.png)
 
 实际上更常见的是有一个固定的历史窗口，举个例子，你总是想预测给定四个单词（上图编号 1 所示）后的下一个单词，注意这里的 4 是算法的超参数。这就是如何适应很长或者很短的句子，方法就是总是只看前 4 个单词，所以说我只用这 4 个单词（上图编号 2 所示）而不去看这几个词（上图编号 3 所示）。如果你一直使用一个 4 个词的历史窗口，这就意味着你的神经网络会输入一个 1200 维的特征变量到这个层中（上图编号 4 所示），然后再通过**softmax**来预测输出，选择有很多种，用一个固定的历史窗口就意味着你可以处理任意长度的句子，因为输入的维度总是固定的。所以这个模型的参数就是矩阵$E$，对所有的单词用的都是同一个矩阵$E$，而不是对应不同的位置上的不同单词用不同的矩阵。然后这些权重（上图编号 5 所示）也都是算法的参数，你可以用反向传播来进行梯度下降来最大化训练集似然，通过序列中给定的 4 个单词去重复地预测出语料库中下一个单词什么。
 
@@ -206,7 +206,7 @@ ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{
 
 这就是早期最成功的学习词嵌入，学习这个矩阵$E$的算法之一。现在我们先概括一下这个算法，看看我们该怎样来推导出更加简单的算法。现在我想用一个更复杂的句子作为例子来解释这些算法，假设在你的训练集中有这样一个更长的句子：“**I want a glass of orange juice to go along with my cereal.**”。我们在上个幻灯片看到的是算法预测出了某个单词**juice**，我们把它叫做目标词（下图编号 1 所示），它是通过一些上下文，在本例中也就是这前 4 个词（下图编号 2 所示）推导出来的。如果你的目标是学习一个嵌入向量，研究人员已经尝试过很多不同类型的上下文。如果你要建立一个语言模型，那么一般选取目标词之前的几个词作为上下文。但如果你的目标不是学习语言模型本身的话，那么你可以选择其他的上下文。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/638c103855ffeb25122259dd6b669850.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/638c103855ffeb25122259dd6b669850.png)
 
 比如说，你可以提出这样一个学习问题，它的上下文是左边和右边的四个词，你可以把目标词左右各 4 个词作为上下文（上图编号 3 所示）。这就意味着我们提出了一个这样的问题，算法获得左边 4 个词，也就是**a glass of orange**，还有右边四个词**to go along with**，然后要求预测出中间这个词（上图编号 4 所示）。提出这样一个问题，这个问题需要将左边的还有右边这 4 个词的嵌入向量提供给神经网络，就像我们之前做的那样来预测中间的单词是什么，来预测中间的目标词，这也可以用来学习词嵌入。
 
@@ -222,7 +222,7 @@ ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{
 
 在上个视频中你已经见到了如何学习一个神经语言模型来得到更好的词嵌入，在本视频中你会见到 **Word2Vec**算法，这是一种简单而且计算时更加高效的方式来学习这种类型的嵌入，让我们来看看。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/0800c19895cbf1a360379b5dc5493902.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/0800c19895cbf1a360379b5dc5493902.png)
 
 本视频中的大多数的想法来源于**Tomas Mikolov**，**Kai Chen**，**Greg Corrado** 和 **Jeff Dean**。
 
@@ -234,7 +234,7 @@ ${CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta) \tag{
 
 接下来说说模型的细节，我们继续假设使用一个 10,000 词的词汇表，有时训练使用的词汇表会超过一百万词。但我们要解决的基本的监督学习问题是学习一种映射关系，从上下文**c**，比如单词**orange**，到某个目标词，记为**t**，可能是单词**juice**或者单词**glass**或者单词**my**。延续上一张幻灯片的例子，在我们的词汇表中，**orange**是第 6257 个单词，**juice**是 10,000 个单词中的第 4834 个，这就是你想要的映射到输出$y$的输入$x$。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/4ebf216a59d46efa2136f72b51fd49bd.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/4ebf216a59d46efa2136f72b51fd49bd.png)
 
 为了表示输入，比如单词**orange**，你可以先从**one-hot**向量开始，我们将其写作$O_{c}$，这就是上下文词的**one-hot**向量（上图编号 1 所示）。然后和你在上节视频中看到的类似，你可以拿嵌入矩阵$E$乘以向量$O_{c}$，然后得到了输入的上下文词的嵌入向量，于是这里$e_{c}=EO_{c}$。在这个神经网络中（上图编号 2 所示），我们将把向量$e_{c}$喂入一个**softmax**单元。我通常把**softmax**单元画成神经网络中的一个节点（上图编号 3 所示），这不是字母**O**，而是**softmax**单元，**softmax**单元要做的就是输出$\hat y$。然后我们再写出模型的细节，这是**softmax**模型（上图编号 4 所示），预测不同目标词的概率：
 
@@ -252,17 +252,17 @@ $L\left( \hat y,y \right) = - \sum_{i = 1}^{10,000}{y_{i}\log \hat y_{i}}$
 
 实际上使用这个算法会遇到一些问题，首要的问题就是计算速度。尤其是在**softmax**模型中，每次你想要计算这个概率，你需要对你词汇表中的所有 10,000 个词做求和计算，可能 10,000 个词的情况还不算太差。如果你用了一个大小为 100,000 或 1,000,000 的词汇表，那么这个分母的求和操作是相当慢的，实际上 10,000 已经是相当慢的了，所以扩大词汇表就更加困难了。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/776044225ea4a736a4f2b38ea61fae4c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/776044225ea4a736a4f2b38ea61fae4c.png)
 
 这里有一些解决方案，如分级（**hierarchical**）的**softmax**分类器和**负采样**（**Negative Sampling**）。
 
 在文献中你会看到的方法是使用一个分级（**hierarchical**）的**softmax**分类器，意思就是说不是一下子就确定到底是属于 10,000 类中的哪一类。想象如果你有一个分类器（上图编号 1 所示），它告诉你目标词是在词汇表的前 5000 个中还是在词汇表的后 5000 个词中，假如这个二分类器告诉你这个词在前 5000 个词中（上图编号 2 所示），然后第二个分类器会告诉你这个词在词汇表的前 2500 个词中，或者在词汇表的第二组 2500 个词中，诸如此类，直到最终你找到一个词准确所在的分类器（上图编号 3 所示），那么就是这棵树的一个叶子节点。像这样有一个树形的分类器，意味着树上内部的每一个节点都可以是一个二分类器，比如逻辑回归分类器，所以你不需要再为单次分类，对词汇表中所有的 10,000 个词求和了。实际上用这样的分类树，计算成本与词汇表大小的对数成正比（上图编号 4 所示），而不是词汇表大小的线性函数，这个就叫做分级**softmax**分类器。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/89743b5ade106cad1318b8f3f4547a7f.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/89743b5ade106cad1318b8f3f4547a7f.png)
 
 我要提一下，在实践中分级**softmax**分类器不会使用一棵完美平衡的分类树或者说一棵左边和右边分支的词数相同的对称树（上图编号 1 所示的分类树）。实际上，分级的**softmax**分类器会被构造成常用词在顶部，然而不常用的词像**durian**会在树的更深处（上图编号 2 所示的分类树），因为你想更常见的词会更频繁，所以你可能只需要少量检索就可以获得常用单词像**the**和**of**。然而你更少见到的词比如**durian**就更合适在树的较深处，因为你一般不需要到那样的深处，所以有不同的经验法则可以帮助构造分类树形成分级**softmax**分类器。所以这是你能在文献中见到的一个加速**softmax**分类的方法，但是我不会再花太多时间在这上面了，你可以从我在第一张幻灯片中提到的**Tomas Mikolov**等人的论文中参阅更多的细节，所以我不会再花更多时间讲这个了。因为在下个视频中，我们会讲到另一个方法叫做负采样，我感觉这个会更简单一点，对于加速**softmax**和解决需要在分母中对整个词汇表求和的问题也很有作用，下个视频中你会看到更多的细节。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/a41190391bd3c506f49124798952e2d2.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/a41190391bd3c506f49124798952e2d2.png)
 
 但是在进入下个视频前，我想要你理解一个东西，那就是怎么对上下文**c**进行采样，一旦你对上下文**c**进行采样，那么目标词**t**就会在上下文**c**的正负 10 个词距内进行采样。但是你要如何选择上下文**c**？一种选择是你可以就对语料库均匀且随机地采样，如果你那么做，你会发现有一些词，像**the**、**of**、**a**、**and**、**to**诸如此类是出现得相当频繁的，于是你那么做的话，你会发现你的上下文到目标词的映射会相当频繁地得到这些种类的词，但是其他词，像**orange**、**apple**或**durian**就不会那么频繁地出现了。你可能不会想要你的训练集都是这些出现得很频繁的词，因为这会导致你花大部分的力气来更新这些频繁出现的单词的$e_{c}$（上图编号 1 所示），但你想要的是花时间来更新像**durian**这些更少出现的词的嵌入，即$e_{\text{durian}}$。实际上词$p(c)$的分布并不是单纯的在训练集语料库上均匀且随机的采样得到的，而是采用了不同的分级来平衡更常见的词和不那么常见的词。
 
@@ -271,7 +271,7 @@ $L\left( \hat y,y \right) = - \sum_{i = 1}^{10,000}{y_{i}\log \hat y_{i}}$
 
 总结下：**CBOW**是从原始语句推测目标字词；而**Skip-Gram**正好相反，是从目标字词推测出原始语句。**CBOW**对小型数据库比较合适，而**Skip-Gram**在大型语料中表现更好。（下图左边为**CBOW**，右边为**Skip-Gram**）
 
-![bo](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/cbow.jpg) ![kipgra](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/skipgram.jpg)
+![bo](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/cbow.jpg) ![kipgra](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/skipgram.jpg)
 
 而刚才讲的**Skip-Gram**模型，关键问题在于**softmax**这个步骤的计算成本非常昂贵，因为它需要在分母里对词汇表中所有词求和。通常情况下，**Skip-Gram**模型用到更多点。在下个视频中，我会展示给你一个算法，它修改了训练目标使其可以运行得更有效，因此它可以让你应用在一个更大的训练集上面，也可以学到更好的词嵌入。
 
@@ -287,7 +287,7 @@ $L\left( \hat y,y \right) = - \sum_{i = 1}^{10,000}{y_{i}\log \hat y_{i}}$
 
 在这个例子中**orange**和**juice**就是个正样本，那么**orange**和**king**就是个负样本，我们把它标为 0。我们要做的就是采样得到一个上下文词和一个目标词，在这个例子中就是**orange** 和**juice**，我们用 1 作为标记，我把中间这列（下图编号 1 所示）叫做词（**word**）。这样生成一个正样本，正样本跟上个视频中生成的方式一模一样，先抽取一个上下文词，在一定词距内比如说正负 10 个词距内选一个目标词，这就是生成这个表的第一行，即**orange– juice -1**的过程。然后为了生成一个负样本，你将用相同的上下文词，再在字典中随机选一个词，在这里我随机选了单词**king**，标记为 0。然后我们再拿**orange**，再随机从词汇表中选一个词，因为我们设想，如果随机选一个词，它很可能跟**orange**没关联，于是**orange–book–0**。我们再选点别的，**orange**可能正好选到**the**，然后是 0。还是**orange**，再可能正好选到**of**这个词，再把这个标记为 0，注意**of**被标记为 0，即使**of**的确出现在**orange**词的前面。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/54beb302688f6a298b63178534281575.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/54beb302688f6a298b63178534281575.png)
 
 总结一下，生成这些数据的方式是我们选择一个上下文词（上图编号 2 所示），再选一个目标词（上图编号 3 所示），这（上图编号 4 所示）就是表的第一行，它给了一个正样本，上下文，目标词，并给定标签为 1。然后我们要做的是给定几次，比如$K$次（上图编号 5 所示），我们将用相同的上下文词，再从字典中选取随机的词，**king**、**book**、**the**、**of**等，从词典中任意选取的词，并标记 0，这些就会成为负样本（上图编号 6 所示）。出现以下情况也没关系，就是如果我们从字典中随机选到的词，正好出现在了词距内，比如说在上下文词**orange**正负 10 个词之内。
 
@@ -295,7 +295,7 @@ $L\left( \hat y,y \right) = - \sum_{i = 1}^{10,000}{y_{i}\log \hat y_{i}}$
 
 那么如何选取$K$？**Mikolov**等人推荐小数据集的话，$K$从 5 到 20 比较好。如果你的数据集很大，$K$就选的小一点。对于更大的数据集$K$就等于 2 到 5，数据集越小$K$就越大。那么在这个例子中，我们就用$K=4$。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/f36df292b7444e9b7379fa7c14626fa2.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/f36df292b7444e9b7379fa7c14626fa2.png)
 
 下面我们讲讲学习从$x$映射到$y$的监督学习模型，这（上图编号 1 所示:$Softmax:p\left( t \middle| c \right) = \frac{e^{\theta_{t}^{T}e_{c}}}{\sum_{j = 1}^{10,000}e^{\theta_{j}^{T}e_{c}}}$）的**softmax**模型。这是我们从上张幻灯片中得到的训练集，这个（上图编号 2 所示）将是新的输入$x$，这个（上图编号 3 所示）将是你要预测的值$y$。为了定义模型，我们将使用记号$c$表示上下文词，记号$t$表示可能的目标词，我再用$y$表示 0 和 1，表示是否是一对上下文-目标词。我们要做的就是定义一个逻辑回归模型，给定输入的$c$，$t$对的条件下，$y=1$的概率，即：
 
@@ -307,7 +307,7 @@ $P\left( y = 1 \middle| c,t \right) = \sigma(\theta_{t}^{T}e_{c})$
 
 你也会在本周的编程练习中用到这个算法，这个技巧就叫负采样。因为你做的是，你有一个正样本词**orange**和**juice**，然后你会特意生成一系列负样本，这些（上图编号 6 所示）是负样本，所以叫负采样，即用这 4 个负样本训练，4 个额外的二分类器，在每次迭代中你选择 4 个不同的随机的负样本词去训练你的算法。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/b05dd0362a19496bb0ad91b8494e374c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/b05dd0362a19496bb0ad91b8494e374c.png)
 
 这个算法有一个重要的细节就是如何选取负样本，即在选取了上下文词**orange**之后，你如何对这些词进行采样生成负样本？一个办法是对中间的这些词进行采样，即候选的目标词，你可以根据其在语料中的经验频率进行采样，就是通过词出现的频率对其进行采样。但问题是这会导致你在**like**、**the**、**of**、**and**诸如此类的词上有很高的频率。另一个极端就是用 1 除以词汇表总词数，即$\frac{1}{\left|v\right|}$，均匀且随机地抽取负样本，这对于英文单词的分布是非常没有代表性的。所以论文的作者**Mikolov**等人根据经验，他们发现这个经验值的效果最好，它位于这两个极端的采样方法之间，既不用经验频率，也就是实际观察到的英文文本的分布，也不用均匀分布，他们采用以下方式：
 
@@ -323,7 +323,7 @@ $P\left( w_{i} \right) = \frac{f\left( w_{i} \right)^{\frac{3}{4}}}{\sum_{j = 1}
 
 你已经了解了几个计算词嵌入的算法，另一个在**NLP**社区有着一定势头的算法是**GloVe**算法，这个算法并不如**Word2Vec**或是**Skip-Gram**模型用的多，但是也有人热衷于它，我认为可能是因为它简便吧，我们来看看这个算法。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/70e282d4d1abb86fd15ff7b175f4e579.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/70e282d4d1abb86fd15ff7b175f4e579.png)
 
 **Glove**算法是由**Jeffrey Pennington**，**Richard Socher**和**Chris Manning**发明的。
 
@@ -337,7 +337,7 @@ $\text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}{f\left( X_{{i
 
 其中$\theta_{i}^{T}e_{j}$，想一下$i$和$j$与$t$和$c$的功能一样，因此这就和你之前看的有些类似了，即$\theta_{t}^{T}e_{c}$。同时对于这个（$\theta_{t}^{T}e_{c}$，下图编号 1 所示）来说，你想要知道的是告诉你这两个单词之间有多少联系，$t$和$c$之间有多紧密，$i$和$j$之间联系程度如何，换句话说就是他们同时出现的频率是多少，这是由这个$X_{{ij}}$影响的。然后，我们要做的是解决参数$\theta$和$e$的问题，然后准备用梯度下降来最小化上面的公式，你只想要学习一些向量，这样他们的输出能够对这两个单词同时出现的频率进行良好的预测。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/f6fc2cec52f4ecb15567511aae822914.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/f6fc2cec52f4ecb15567511aae822914.png)
 
 现在一些附加的细节是如果$X_{{ij}}$是等于 0 的话，那么$log0$就是未定义的，是负无穷大的，所以我们想要对$X_{{ij}}$为 0 时进行求和，因此要做的就是添加一个额外的加权项$f\left(X_{{ij}}\right)$（上图编号 2 所示）。如果$X_{{ij}}$等于 0 的话，同时我们会用一个约定，即$0log0= 0$，这个的意思是如果$X_{{ij}} =0$，先不要进行求和，所以这个$log0$项就是不相关项。上面的求和公式表明，这个和仅是一个上下文和目标词关系里连续出现至少一次的词对的和。$f\left(X_{{ij}}\right)$的另一个作用是，有些词在英语里出现十分频繁，比如说**this**，**is**，**of**，**a**等等，有些情况，这叫做**停止词**，但是在频繁词和不常用词之间也会有一个连续统（**continuum**）。不过也有一些不常用的词，比如**durion**，你还是想将其考虑在内，但又不像那些常用词这样频繁。因此，这个加权因子$f\left(X_{{ij}}\right)$就可以是一个函数，即使是像**durion**这样不常用的词，它也能给予大量有意义的运算，同时也能够给像**this**，**is**，**of**，**a**这样在英语里出现更频繁的词更大但不至于过分的权重。因此有一些对加权函数 f 的选择有着启发性的原则，就是既不给这些词（**this**，**is**，**of**，**a**）过分的权重，也不给这些不常用词（**durion**）太小的权值。如果你想要知道 f 是怎么能够启发性地完成这个功能的话，你可以看一下我之前的幻灯片里引用的**GloVe**算法论文。
 
@@ -347,7 +347,7 @@ $\text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}{f\left( X_{{i
 
 在我们总结词嵌入学习算法之前，有一件更优先的事，我们会简单讨论一下。就是说，我们以这个特制的表格作为例子来开始学习词向量，我们说，第一行的嵌入向量是来表示**Gender**的，第二行是来表示**Royal**的，然后是是**Age**，在之后是**Food**等等。但是当你在使用我们了解过的算法的一种来学习一个词嵌入时，例如我们之前的幻灯片里提到的**GloVe**算法，会发生一件事就是你不能保证嵌入向量的独立组成部分是能够理解的，为什么呢？
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ec4b604d619dd617f14c2a34945c075d.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ec4b604d619dd617f14c2a34945c075d.png)
 
 假设说有个空间，里面的第一个轴（上图编号 1 所示）是**Gender**，第二个轴（上图编号 2 所示）是**Royal**，你能够保证的是第一个嵌入向量对应的轴（上图编号 3 所示）是和这个轴（上面提到的第一和第二基轴，编号 1，2 所示）有联系的，它的意思可能是**Gender**、**Royal**、**Age**和**Food**。具体而言，这个学习算法会选择这个（上图编号 3 所示）作为第一维的轴，所以给定一些上下文词，第一维可能是这个轴（上图编号 3 所示），第二维也许是这个（上图编号 4 所示），或者它可能不是正交的，它也可能是第二个非正交轴（上图编号 5 所示），它可以是你学习到的词嵌入中的第二部分。当我们看到这个（上图编号 6 所示）的时候，如果有某个可逆矩阵$A$，那么这项（上图编号 6 所示）就可以简单地替换成$\left(A\theta_{i} \right)^{T}(A^{- T}e_{j})$，因为我们将其展开：
 
@@ -361,7 +361,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，这是**NLP**中最重要的模块之一，经常用在许多应用中。情感分类一个最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小的标记的训练集，你也能构建一个不错的情感分类器，让我们看看是怎么做到的。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/bf6f5879d33ae4ef09b32f77df84948e.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/bf6f5879d33ae4ef09b32f77df84948e.png)
 
 这是一个情感分类问题的一个例子（上图所示），输入$x$是一段文本，而输出$y$是你要预测的相应情感。比如说是一个餐馆评价的星级，
 
@@ -377,7 +377,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从 10,000 到 100,000 个单词都很常见，甚至有时会小于 10,000 个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集时。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ea844a0290e66d1c76a31e34b632dc0c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ea844a0290e66d1c76a31e34b632dc0c.png)
 
 接下来你可以这样做，这节我们会讲几个不同的算法。这是一个简单的情感分类的模型，假设有一个句子"**dessert is excellent**"，然后在词典里找这些词，我们通常用 10,000 个词的词汇表。我们要构建一个分类器能够把它映射成输出四个星，给定这四个词（"**dessert is excellent**"），我们取这些词，找到相应的**one-hot**向量，所以这里（上图编号 1 所示）就是$o_{8928}$，乘以嵌入矩阵$E$，$E$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词**the**的嵌入向量$e_{8928}$，对**dessert**、**is**、**excellent**做同样的步骤。
 
@@ -387,7 +387,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 这个算法有一个问题就是没考虑词序，尤其是这样一个负面的评价，"**Completely lacking in good taste, good service, and good ambiance.**"，但是**good**这个词出现了很多次，有 3 个**good**，如果你用的算法跟这个一样，忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，你最后的特征向量会有很多**good**的表示，你的分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
 
 我们有一个更加复杂的模型，不用简单的把所有的词嵌入都加起来，我们用一个**RNN**来做情感分类。我们这样做，首先取这条评论，"**Completely lacking in good taste, good service, and good ambiance.**"，找出每一个**one-hot**向量，这里我跳过去每一个**one-hot**向量的表示。用每一个**one-hot**向量乘以词嵌入矩阵$E$，得到词嵌入表达$e$，然后把它们送进**RNN**里。**RNN**的工作就是在最后一步（上图编号 1 所示）计算一个特征表示，用来预测$\hat y$，这是一个多对一的网络结构的例子，我们之前已经见过了。有了这样的算法，考虑词的顺序效果就更好了，它就能意识到"**things are lacking in good taste**"，这是个负面的评价，“**not good**”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“**not good**”和 “**good**”不是一个意思，"**lacking in good taste**"也是如此，等等。
 
@@ -399,7 +399,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 现在机器学习和人工智能算法正渐渐地被信任用以辅助或是制定极其重要的决策，因此我们想尽可能地确保它们不受非预期形式偏见影响，比如说性别歧视、种族歧视等等。本节视频中我会向你展示词嵌入中一些有关减少或是消除这些形式的偏见的办法。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/25430afa93f24dc6caa6f85503bbad27.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/25430afa93f24dc6caa6f85503bbad27.png)
 
 本节视频中当我使用术语**bias**时，我不是指**bias**本身这个词，或是偏见这种感觉，而是指性别、种族、性取向方面的偏见，那是不同的偏见，同时这也通常用于机器学习的学术讨论中。不过我们讨论的大部分内容是词嵌入是怎样学习类比像**Man**：**Woman**，就像**King**：**Queen**，不过如果你这样问，如果**Man**对应**Computer Programmer**，那么**Woman**会对应什么呢？所以这篇论文（上图编号 1 所示:**Bolukbasi T, Chang K W, Zou J, et al. Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings[J]. 2016.**）的作者**Tolga Bolukbasi**、**Kai-Wei Chang**、**James Zou**、**Venkatesh Saligrama**和 **Adam Kalai**发现了一个十分可怕的结果，就是说一个已经完成学习的词嵌入可能会输出**Man**：**Computer Programmer**，同时输出**Woman**：**Homemaker**，那个结果看起来是错的，并且它执行了一个十分不良的性别歧视。如果算法输出的是**Man**：**Computer Programmer**，同时**Woman**：**Computer Programmer**这样子会更合理。同时他们也发现如果**Father**：**Doctor**，那么**Mother**应该对应什么呢？一个十分不幸的结果是，有些完成学习的词嵌入会输出**Mother**：**Nurse**。
 
@@ -407,7 +407,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 至于词嵌入，它们能够轻易学会用来训练模型的文本中的偏见内容，所以算法获取到的偏见内容就可以反映出人们写作中的偏见。在漫长的世纪里，我认为人类已经在减少这些类型的偏见上取得了进展，幸运的是对于人工智能来说，实际上我认为有更好的办法来实现更快地减少**AI**领域中相比与人类社会中的偏见。虽然我认为我们仍未实现人工智能，仍然有许多研究许多难题需要完成来减少学习算法中这些类型的偏见。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/cf60f429ef532a2b3bbad3db98b054c5.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/cf60f429ef532a2b3bbad3db98b054c5.png)
 
 本节视频里我想要做的是与你们分享一个例子，它是一篇论文的一套办法，就是下面引用的这篇由**Bolukbasi**和其他人共同撰写的论文，它是研究减少词嵌入中偏见问题的。就是这些，假设说我们已经完成一个词嵌入的学习，那么**babysitter**就是在这里，**doctor**在这里，**grandmother**在这里，**grandfather**在这里，也许**girl**嵌入在这里，**boy**嵌入在这里，也许**she**嵌在这里，**he**在这里（上图编号 1 所示的区域内），所以首先我们要做的事就是辨别出我们想要减少或想要消除的特定偏见的趋势。
 
@@ -415,11 +415,11 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 一、对于性别歧视这种情况来说，我们能做的是$e_{\text{he}}-e_{\text{she}}$，因为它们的性别不同，然后将$e_{\text{male}}-e_{\text{female}}$，然后将这些值取平均（上图编号 2 所示），将这些差简单地求平均。这个趋势（上图编号 3 所示）看起来就是性别趋势或说是偏见趋势，然后这个趋势（上图编号 4 所示）与我们想要尝试处理的特定偏见并不相关，因此这就是个无偏见趋势。在这种情况下，偏见趋势可以将它看做**1D**子空间，所以这个无偏见趋势就会是**299D**的子空间。我已经略微简化了，原文章中的描述这个偏见趋势可以比 1 维更高，同时相比于取平均值，如同我在这里描述的这样，实际上它会用一个更加复杂的算法叫做**SVU**，也就是奇异值分解，如果你对主成分分析（**Principle Component Analysis**）很熟悉的话，奇异值分解这个算法的一些方法和主成分分析 (**PCA**)其实很类似。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/4102795b004ff090ed83dc654f585852.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/4102795b004ff090ed83dc654f585852.png)
 
 二、中和步骤，所以对于那些定义不确切的词可以将其处理一下，避免偏见。有些词本质上就和性别有关，像**grandmother**、**grandfather**、**girl**、**boy**、**she**、**he**，他们的定义中本就含有性别的内容，不过也有一些词像**doctor**和**babysitter**我们想使之在性别方面是中立的。同时在更通常的情况下，你可能会希望像**doctor**或**babysitter**这些词成为种族中立的，或是性取向中立的等等，不过这里我们仍然只用性别来举例说明。对于那些定义不明确的词，它的基本意思是不像**grandmother**和**grandfather**这种定义里有着十分合理的性别含义的，因为从定义上来说**grandmothers**是女性，**grandfather**是男性。所以对于像**doctor**和**babysitter**这种单词我们就可以将它们在这个轴（上图编号 1 所示）上进行处理，来减少或是消除他们的性别歧视趋势的成分，也就是说减少他们在这个水平方向上的距离（上图编号 2 方框内所示的投影），所以这就是第二个中和步。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/9b27d865dff73a2f10abbdc1c7fc966b.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/9b27d865dff73a2f10abbdc1c7fc966b.png)
 
 三、均衡步，意思是说你可能会有这样的词对，**grandmother**和**grandfather**，或者是**girl**和**boy**，对于这些词嵌入，你只希望性别是其区别。那为什么要那样呢？在这个例子中，**babysitter**和**grandmother**之间的距离或者说是相似度实际上是小于**babysitter**和**grandfather**之间的（上图编号 1 所示），因此这可能会加重不良状态，或者可能是非预期的偏见，也就是说**grandmothers**相比于**grandfathers**最终更有可能输出**babysitting**。所以在最后的均衡步中，我们想要确保的是像**grandmother**和**grandfather**这样的词都能够有一致的相似度，或者说是相等的距离，和**babysitter**或是**doctor**这样性别中立的词一样。这其中会有一些线性代数的步骤，但它主要做的就是将**grandmother**和**grandfather**移至与中间轴线等距的一对点上（上图编号 2 所示），现在性别歧视的影响也就是这两个词与**babysitter**的距离就完全相同了（上图编号 3 所示）。所以总体来说，会有许多对像**grandmother-grandfather**，**boy-girl**，**sorority-fraternity**，**girlhood-boyhood**，**sister-brother**，**niece-nephew**，**daughter-son**这样的词对，你可能想要通过均衡步来解决他们。
 
@@ -435,7 +435,7 @@ $\left( A\theta_{i} \right)^{T}\left( A^{- T}e_{j} \right) = \theta_{i}^{T}A^{T}
 
 均衡背后的关键思想是确保一对特定的单词与 49 维$g_\perp$距离相等 。均衡步骤还可以确保两个均衡步骤现在与$e_{receptionist}^{debiased}$ 距离相同，或者用其他方法进行均衡。下图演示了均衡算法的工作原理：
 
-![qualize1](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/equalize10.png)
+![qualize1](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/equalize10.png)
 
 公式的推导有点复杂(参考论文：**Bolukbasi T, Chang K W, Zou J, et al. Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings[J]. 2016.**)
 

@@ -20,7 +20,7 @@
 - 跟使用注意力的 seq2seq 不同，transformer 是纯基于注意力
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/68/68-01.png" alt="image" align="center" width=500 />
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/68/68-01.png" alt="image" align="center" width=500 />
 </div>
 
 ### 2.多头注意力
@@ -32,13 +32,13 @@
   - 合并各个头（head）输出得到最终输出
 
   - <div align="center">
-      <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/68/68-02.png" alt="image" align="center" width=500 />
+      <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/68/68-02.png" alt="image" align="center" width=500 />
     </div>
 
 - 数学表达式
 
   <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/68/68-02.png" alt="image" align="center" width=500 />
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/68/68-02.png" alt="image" align="center" width=500 />
   </div>
 
 ### 3.有掩码的多头注意力

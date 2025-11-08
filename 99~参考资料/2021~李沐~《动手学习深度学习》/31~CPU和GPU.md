@@ -39,7 +39,7 @@
   - CPU 会“聪明的”提前读取下一个（缓存线）
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/31/31-01.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/31/31-01.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 1.3 提升 CPU 利用率二：
@@ -56,20 +56,20 @@
 - 左边比右边慢（python）
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/31/31-02.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/31/31-02.png" alt="image" align="center"width="500"/>
 </div>
 
 - 左边调用 n 次函数，每次调用有开销
 - 右边很容易被并行（例如下面的 C++实现）
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/31/31-03.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/31/31-03.png" alt="image" align="center"width="500"/>
 </div>
 
 ### 2.CPU vs GPU:
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/31/31-04.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/31/31-04.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.1 提升 GPU 利用率
@@ -89,7 +89,7 @@
 #### 2.2 CPU/GPU 带宽
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/31/31-05.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/31/31-05.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.3 更多的 CPUs 和 GPUs

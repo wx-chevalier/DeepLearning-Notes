@@ -64,7 +64,7 @@
 
 **Geoffrey Hinton：**没问题，这要回溯到我研究生第一年，我第一次展示了怎么用快速权重，也就是适应很快，衰退也很快的权重，所以只有短期记忆，我在 1973 年展示了一个很简单的系统，可以用这些权重做真实循环，真实循环的意思是，用到的神经元来表示循环核心的东西用到的权重，实际也是在循环核心被重复利用的知识引导出的新问题是，当你突出循环核心时，怎么记得已经是在过程中了，这个记忆从何而来，因为你用过了重复核心的神经元，答案是你可以把记忆放入快速权重中，这些活动神经元可以从快速权重中复原和 Jimmy Ba 最近的研究中，我们已经有了篇关于，这样来用快速权重复原的论文，这个空缺非常大，1973 年的第一个模型没有被发表，接下来就是 2015 或 2016 年 Jimmy Ba 的模型，前后相隔 40 年。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/cc27369ab2840f3c34d4c502bd7bcecb.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/cc27369ab2840f3c34d4c502bd7bcecb.png)
 
 **吴恩达：**是个有些年头的概念，五年左右，叫做胶囊，你目前进展如何？
 
@@ -158,7 +158,7 @@
 
 **吴恩达：**嗨，Ian，感谢你今天接受采访。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/7a42e10535a6e9bbfa3fe4af2465465c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/7a42e10535a6e9bbfa3fe4af2465465c.png)
 
 **Ian：**谢谢你邀请我，Andrew，我很高兴来到这里。
 
@@ -189,7 +189,7 @@ Dreifuss 对 Geoff Hinton 的深度信念网络论文很感兴趣。
 
 **吴恩达：**哇，太神奇了，我还不知道这事，太好了。那么，今天真正以风暴席卷深度学习世界的，是你发明的生成式对抗网络(GAN)，那么你怎么想出来的呢?我一直在研究生成模型很久，所以 GAN 是其中一种生成模型，你有很多训练数据，你希望学会制造更多类似它们的数据，但它们都是虚构的，网络还没见过这种形式的虚构数据，还有几种办法可以做生成模型，在我们想出 GAN 之前还流行了几年，在我读博的时候，我一直在研究其他各种方法，我非常了解所有其他框架的优缺点，玻尔兹曼机器和稀疏编码，还有其他多年来一直很受欢迎的方法，我那时正在寻找某个可以同时避免所有方法缺点的东西，最后，当我在一个酒吧里和朋友争论生成模型的时候，灵感来了，我开始告诉他们，你需要这么做，这么，这么做我保证管用，我的朋友不相信会管用，我本来还在写一本深度学习的教科书。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/c0e7bf7868ca68a0643f311457d186cb.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/c0e7bf7868ca68a0643f311457d186cb.png)
 
 **吴恩达：**我知道了..
 
@@ -271,7 +271,7 @@ Courville 合著的，他们是我的博士导师，我们写了一本现代版�
 
 ### 吴恩达采访 Ruslan Salakhutdinov
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/be2bf9e241d327c1fb32788696f4b52a.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/be2bf9e241d327c1fb32788696f4b52a.png)
 
 **吴恩达：**欢迎你，Rus，很高兴今天你能接受采访。
 
@@ -314,7 +314,7 @@ Courville 合著的，他们是我的博士导师，我们写了一本现代版�
 
 吴恩达：所以你提到对于要进入深度学习领域的人，无监督学习是令人兴奋的领域，今天有很多人想进入深度学习做研究或应用工作，对于这个全球性的社区来说，要做研究或应用工作，你会有什么建议?
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/bb1de4d474e42b2fa360de60c21ab1dd.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/bb1de4d474e42b2fa360de60c21ab1dd.png)
 
 **Rus：**是的，我认为最关键的建议之一，要给进入这个领域新人的建议，我会鼓励他们尝试不同的事情，不要害怕尝试新事物，不要害怕尝试创新，我可以给你一个例子，当我是研究生时，我们正在研究神经网络，这些是非常难以优化的非凸系统，我还记得在优化社区的朋友聊天，他们的反馈总是这样，这些问题你们解决不了的，因为这些是非凸的，你们不了解优化，凸优化都那么难做，你们还要做非凸优化?然后令人惊讶的是在我们的实验室里，我们从来不关心这么具体的问题，我们正在考虑如何优化，看看能否获得有趣的结果，这种心态有效地推动了社区的发展，我们没有害怕，也许一定程度上是因为，我们没有认真研究优化背后的理论，但我会鼓励人们尝试，不要害怕，要试试挑战一些困难的问题。
 
@@ -344,7 +344,7 @@ Courville 合著的，他们是我的博士导师，我们写了一本现代版�
 
 **吴恩达：**Yoshua 你好，很高兴您能参加我们的访谈活动(字幕来源：网易云课堂)。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/7ad8b38ac7fc7c81ad3f08549443e0c5.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/7ad8b38ac7fc7c81ad3f08549443e0c5.png)
 
 **Yoshua：**我也很高兴。
 
@@ -373,7 +373,7 @@ Hinton 等人撰写的，关于联结主义的论文，我研究过循环神经�
 
 **Yoshua：**是的，没错，那是 90 年代后期，我很感兴趣的内容之一，我和我兄弟 Samy 一起做了尝试就是使用神经网络来解决维数灾难的问题，它是统计学习中的一个核心问题，我们能够以一种非常高效的方式，利用这些分布式表达来表示许多随机变量的联合分布，效果很好，之后我把它扩展到词序列的联合分布，这就是词向量的由来，因为我当时认为，这可以实现对拥有相似语义的单词的泛化。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/a30842a8b57d02ec462559f9dadbaf4d.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/a30842a8b57d02ec462559f9dadbaf4d.png)
 
 **吴恩达：**过去 20 年，您的研究小组完成了多项研究，提出了很多想法，短短几分钟之内无法细数，我好奇的是，小组中的哪项研究或想法，最让您感到自豪。
 
@@ -430,7 +430,7 @@ Hinton 的启发，他在 2007 年的时候发表过一次演讲，当时是第�
 
 **吴恩达：**欢迎你，元庆，今天你能参与我们的活动，我真的很高兴。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/c3f834c06c794f8cc36b9372ec1b419d.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/c3f834c06c794f8cc36b9372ec1b419d.png)
 
 **林元庆：**没问题。
 
@@ -451,7 +451,7 @@ Hinton 的启发，他在 2007 年的时候发表过一次演讲，当时是第�
 
 **林元庆：**国家工程实验室的目标就是建立一个巨大的深度学习的平台，希望是最大的一个或至少在中国是最大的，这个平台会给大家提供深度学习的框架，类似于 PaddlePaddle，我们会提供大规模的计算资源，我们还提供庞大的数据库，如果大家能够能在这个平台上开展研究或开发好的技术，我们会提供巨大的应用空间，比如说，技术在巨大的应用如百度上被证明，技术水平就可以融合进来并对其做出改善，因此，我们认为整合这些资源，我认为会造就一个强大的平台，我各举一个例子，比如说，我们现在发表了一篇文章，另一个人想要重复操作的话，最好的方法就是在某平台处提供代码，之后你就可以把代码下载到电脑上，，你会尝试寻找某处的数据组，然后你大概也需要得到好的计算能力，以便让你的计算资源运转如飞，所以这一切会让你省些功夫，在国家实验室工作将会变得很容易，如果某些人应用此平台做一些工作，写一些文章，实验室能在平台上拥有这些代码，计算架构已经建立起来了，数据也是，基本上你只需要一根线把数据库连接起来，所以，这可以给计算机科学重复性问题的损失带来巨大改善，所以，很简单的，在几秒之内，你就可以开始学习文献上的一些东西，对，这是很强大的，所以，这只是我们工作中的一个例子，以确保我们提供给整个社会和产业一个真正有效的平台。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/1041fecd79f72f9d3ec16a51293bc391.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/1041fecd79f72f9d3ec16a51293bc391.png)
 
 **吴恩达：**太神奇了，这确实加速了深度学习研究。
 
@@ -479,7 +479,7 @@ Hinton 的启发，他在 2007 年的时候发表过一次演讲，当时是第�
 
 ### 吴恩达采访 Pieter Abbeel
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ede5f89d3ce1eb7b82532792cc00ca6a.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ede5f89d3ce1eb7b82532792cc00ca6a.png)
 
 **吴恩达：**谢谢你，Pieter，能够来到这(字幕来源：网易云课堂)，很多人都认为你是一位有名的机器学习，深度学习，机器人技术的研究者，我想让更多人知道你的故事，你是怎么开始的呢。
 
@@ -517,7 +517,7 @@ Hinton 的启发，他在 2007 年的时候发表过一次演讲，当时是第�
 **Pieter Abbeel：**我试着理解 AI 的时候很有趣，因为其实与我在斯坦福的硕士学位相符，其中有很多领袖我亲自交流过的，比如 John McCarthy，但用的方法与众不同，相比较 2000 年时，大多数人在做的事，然后和 Daphne
 Koller 的交谈，形成了我对 AI 最初的想法，她的 AI 课程，她的概率图模型课，让我真正产生兴趣，随机的变量如何应用于简单的分布，再被分成子集变量，然后其他的结论，都会让你知道好多，要是能让它计算起来也容易，那就很具挑战了，从那之后，我开始攻读博士，你到斯坦福后，是个很棒的现实提醒，也就是，不该去检验你研究里的度量是否正确，而是去看一种关联，你在做的事情和影响你的东西之间有何关联，你的研究实际改变了什么，而不是具体里面出现的数学。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/4e005b61998747b620084eb8ce1d9936.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/4e005b61998747b620084eb8ce1d9936.png)
 
 **吴恩达：**对，很棒，我没发现之前遗忘了这点。
 
@@ -566,7 +566,7 @@ Koller 的交谈，形成了我对 AI 最初的想法，她的 AI 课程，她�
 
 **吴恩达：**欢迎 Andrej，今天你能来我很高兴。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/e52dec21068b0a0a47e5f46ac519a614.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/e52dec21068b0a0a47e5f46ac519a614.png)
 
 **Andrej：**是的，谢谢你的采访邀请。
 
@@ -580,7 +580,7 @@ Nato Defreiter]教的课，还是机器学习，那时我第一次深入了解�
 
 **Andrej：**所以基本上，他们的 ImageNet 比赛可以说成是计算机视觉领域的世界杯，不管人们是否注意这个基准和数字，我们的错误率也会随时间下降，对我来说，人类在这个评分标准上的位置并不清楚，我之前在 CIFAR-10 数据集上做了类似的小规模实验，我在 CIFAR-10 数据集中做的是，我观察了这些 32x32 的图像，我试图自己对他们进行分类，那时候只有十大类，所以很容易构造一个界面去人工分类，那是我自己的错误率大概是 6%，然后根据我实际见到的东西，一个具体任务有多难，我预测出最低能达到的错误率大概会是多少，好吧，我不记得具体数字是多少，我想大概是 10%，现在算法做到了 3%或 2%，或者某个变态的数值，那是我第一次做人类基线实验，非常有趣，我认为这是非常重要的，做这个基线的目的和你的视频里介绍的一样，我的意思是你真的希望这个数字能够表示人类的水平，这样我们就可以和机器学习算法比较，而对于 ImageNet 似乎存在一些分歧，这个基准到底有多重要，应该花多少精力去尽量得到较低的数字，我们甚至不了解人类自己在这个评分系统中的位置，所以我写了这个 JavaScript 界面，我给自己看图，然后 ImageNet 的问题在于，你不只有 10 个分类，你有 1000 个分类，这几乎就像一个用户界面挑战，显然我自己记不住 1000 多个分类，所以我应该怎么设计这个界面，让比赛公平一点，所以我把全部分类列表处理，然后给我自己看看各个分类的例子，所以对于每张图像，我大概浏览了 1000 多个类别，只是想看看，根据我在每个类别里看到的例子判断这个图像可能是什么，而且我认为这个练习本身就是非常有启发性的，我的意思是，我不明白为什么 ImageNet 有三分之一类别都是狗，狗的品种，所以我兴致勃勃地看着那个网络花了大量时间去处理狗，我想它的三分之一性能用来处理狗。我这个小实验做了一两个星期，我把其他所有任务都搁置了，我那时想这练习非常有趣，我最后得到了一个数字，我觉得一个人是不够的，我需要更多人参与到这个实验中来，我试图在实验室内组织人员做同样的事情，我想那时大家都不怎么愿意贡献，花上一两周时间来做这么痛苦的工作，就是坐五个小时，尝试分辨出这只狗的品种是什么，所以在这方面，我无法得到足够多的数据，我们大概估计了一下人类的表现，我觉得很有趣，然后就传开了，那时我还没觉得很明显，我只是想知道这个数字，但这很快变成了一个概念，大家都很喜欢这个事实，然后就这样了，大家都开玩笑地说，我是那个作为基准的人，当然，我都笑死了，是啊。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/c58d145f1496de024a732317788cd35b.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/c58d145f1496de024a732317788cd35b.png)
 
 **吴恩达：**当 DeepNet 软件超越了你的表现时，你有没有很惊讶?
 

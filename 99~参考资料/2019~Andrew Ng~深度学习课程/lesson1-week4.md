@@ -12,11 +12,11 @@
 
 1.逻辑回归，结构如下图左边。一个隐藏层的神经网络，结构下图右边：
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/7c1cc04132b946baec5487ba68242362.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/7c1cc04132b946baec5487ba68242362.png)
 
 注意，神经网络的层数是这么定义的：**从左到右，由 0 开始定义**，比如上边右图，${x}_{1}$、${x}_{2}$、${x}_{3}$,这层是第 0 层，这层左边的隐藏层是第 1 层，由此类推。如下图左边是两个隐藏层的神经网络，右边是 5 个隐藏层的神经网络。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/be71cf997759e4aeaa4be1123c6bb6ba.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/be71cf997759e4aeaa4be1123c6bb6ba.png)
 
 严格上来说逻辑回归也是一个一层的神经网络，而上边右图一个深得多的模型，浅与深仅仅是指一种程度。记住以下要点：
 
@@ -26,7 +26,7 @@
 
 我们再看下深度学习的符号定义：
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/9927bcb34e8e5bfe872937fccd693081.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/9927bcb34e8e5bfe872937fccd693081.png)
 
 上图是一个四层的神经网络，有三个隐藏层。我们可以看到，第一层（即左边数过去第二层，因为输入层是第 0 层）有 5 个神经元数目，第二层 5 个，第三层 3 个。
 
@@ -50,7 +50,7 @@
 
 先讲前向传播，输入${a}^{[l-1]}$，输出是${a}^{[l]}$，缓存为${z}^{[l]}$；从实现的角度来说我们可以缓存下${w}^{[l]}$和${b}^{[l]}$，这样更容易在不同的环节中调用函数。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/7cfc4b5fe94dcd9fe7130ac52701fed5.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/7cfc4b5fe94dcd9fe7130ac52701fed5.png)
 
 所以前向传播的步骤可以写成： ${z}^{[l]}={W}^{[l]}\cdot{a}^{[l-1]}+{b}^{[l]}$
 
@@ -66,7 +66,7 @@
 
 输入为${{da}^{[l]}}$，输出为${{da}^{[l-1]}}$，${{dw}^{[l]}}$, ${{db}^{[l]}}$
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/c13d2a8fa258125a5398030c97101ee1.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/c13d2a8fa258125a5398030c97101ee1.png)
 
 所以反向传播的步骤可以写成：
 
@@ -94,7 +94,7 @@
 
 总结一下：
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/53a5b4c71c0facfc8145af3b534f8583.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/53a5b4c71c0facfc8145af3b534f8583.png)
 
 第一层你可能有一个**ReLU**激活函数，第二层为另一个**ReLU**激活函数，第三层可能是**sigmoid**函数（如果你做二分类的话），输出值为，用来计算损失；这样你就可以向后迭代进行反向传播求导来求${{dw}^{[3]}}$，${{db}^{[3]}}$ ，${{dw}^{[2]}}$ ，${{db}^{[2]}}$ ，${{dw}^{[1]}}$ ，${{db}^{[1]}}$。在计算的时候，缓存会把${{z}^{[1]}}$ ${{z}^{[2]}}$${{z}^{[3]}}$传递过来，然后回传${{da}^{[2]}}$，${{da}^{[1]}}$ ，可以用来计算${{da}^{[0]}}$，但我们不会使用它，这里讲述了一个三层网络的前向和反向传播，还有一个细节没讲就是前向递归——用输入数据来初始化，那么反向递归（使用**Logistic**回归做二分类）——对${{A}^{[l]}}$ 求导。
 
@@ -114,7 +114,7 @@
 
 前向传播可以归纳为多次迭代${{z}^{[l]}}={{w}^{[l]}}{{a}^{[l-1]}}+{{b}^{[l]}}$，${{a}^{[l]}}={{g}^{[l]}} {({z}^{[l]})}$。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/faf2d5a697d1bd75aee46865f3a73a25.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/faf2d5a697d1bd75aee46865f3a73a25.png)
 
 向量化实现过程可以写成：
 
@@ -136,7 +136,7 @@ ${{z}^{[l]}}$,${{a}^{[l]}}$: $({{n}^{[l]}},1)$;
 
 ${{dw}^{[l]}}$和${{w}^{[l]}}$维度相同，${{db}^{[l]}}$和${{b}^{[l]}}$维度相同，且$w$和$b$向量化维度不变，但$z$,$a$以及$x$的维度会向量化后发生变化。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/5ee7a8073518e36a98d4225eaf0f3063.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/5ee7a8073518e36a98d4225eaf0f3063.png)
 
 向量化后：
 
@@ -146,7 +146,7 @@ $m$为训练集大小，所以${Z}^{[l]}$的维度不再是$({{n}^{[l]}},1)$，�
 
 ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/fb680729409dc3912fd5a3d0c13b620a.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/fb680729409dc3912fd5a3d0c13b620a.png)
 
 在你做深度神经网络的反向传播时，一定要确认所有的矩阵维数是前后一致的，可以大大提高代码通过率。下一节我们讲为什么深层的网络在很多问题上比浅层的好。
 
@@ -156,17 +156,17 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 首先，深度网络在计算什么？
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/563823fb44e05835948366f087f17e5c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/563823fb44e05835948366f087f17e5c.png)
 
 首先，深度网络究竟在计算什么？如果你在建一个人脸识别或是人脸检测系统，深度神经网络所做的事就是，当你输入一张脸部的照片，然后你可以把深度神经网络的第一层，当成一个特征探测器或者边缘探测器。在这个例子里，我会建一个大概有 20 个隐藏单元的深度神经网络，是怎么针对这张图计算的。隐藏单元就是这些图里这些小方块（第一张大图），举个例子，这个小方块（第一行第一列）就是一个隐藏单元，它会去找这张照片里“\|”边缘的方向。那么这个隐藏单元（第四行第四列），可能是在找（“—”）水平向的边缘在哪里。之后的课程里，我们会讲专门做这种识别的卷积神经网络，到时候会细讲，为什么小单元是这么表示的。你可以先把神经网络的第一层当作看图，然后去找这张照片的各个边缘。我们可以把照片里组成边缘的像素们放在一起看，然后它可以把被探测到的边缘组合成面部的不同部分（第二张大图）。比如说，可能有一个神经元会去找眼睛的部分，另外还有别的在找鼻子的部分，然后把这许多的边缘结合在一起，就可以开始检测人脸的不同部分。最后再把这些部分放在一起，比如鼻子眼睛下巴，就可以识别或是探测不同的人脸（第三张大图）。
 
 你可以直觉上把这种神经网络的前几层当作探测简单的函数，比如边缘，之后把它们跟后几层结合在一起，那么总体上就能学习更多复杂的函数。这些图的意义，我们在学习卷积神经网络的时候再深入了解。还有一个技术性的细节需要理解的是，边缘探测器其实相对来说都是针对照片中非常小块的面积。就像这块（第一行第一列），都是很小的区域。面部探测器就会针对于大一些的区域，但是主要的概念是，一般你会从比较小的细节入手，比如边缘，然后再一步步到更大更复杂的区域，比如一只眼睛或是一个鼻子，再把眼睛鼻子装一块组成更复杂的部分。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/595d105074eda2e4a11da9592fd5e444.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/595d105074eda2e4a11da9592fd5e444.png)
 
 这种从简单到复杂的金字塔状表示方法或者组成方法，也可以应用在图像或者人脸识别以外的其他数据上。比如当你想要建一个语音识别系统的时候，需要解决的就是如何可视化语音，比如你输入一个音频片段，那么神经网络的第一层可能就会去先开始试着探测比较低层次的音频波形的一些特征，比如音调是变高了还是低了，分辨白噪音，咝咝咝的声音，或者音调，可以选择这些相对程度比较低的波形特征，然后把这些波形组合在一起就能去探测声音的基本单元。在语言学中有个概念叫做音位，比如说单词 ca，c 的发音，“嗑”就是一个音位，a 的发音“啊”是个音位，t 的发音“特”也是个音位，有了基本的声音单元以后，组合起来，你就能识别音频当中的单词，单词再组合起来就能识别词组，再到完整的句子。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/bbdec09feac2176ad9578e93c1ee8c04.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/bbdec09feac2176ad9578e93c1ee8c04.png)
 
 所以深度神经网络的这许多隐藏层中，较早的前几层能学习一些低层次的简单特征，等到后几层，就能把简单的特征结合起来，去探测更加复杂的东西。比如你录在音频里的单词、词组或是句子，然后就能运行语音识别了。同时我们所计算的之前的几层，也就是相对简单的输入函数，比如图像单元的边缘什么的。到网络中的深层时，你实际上就能做很多复杂的事，比如探测面部或是探测单词、短语或是句子。
 
@@ -180,7 +180,7 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 另外一个，关于神经网络为何有效的理论，来源于电路理论，它和你能够用电路元件计算哪些函数有着分不开的联系。根据不同的基本逻辑门，譬如与门、或门、非门。在非正式的情况下，这些函数都可以用相对较小，但很深的神经网络来计算，小在这里的意思是隐藏单元的数量相对比较小，但是如果你用浅一些的神经网络计算同样的函数，也就是说在我们不能用很多隐藏层时，你会需要成指数增长的单元数量才能达到同样的计算结果。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/b409b7c0d05217ea37f0036691c891ca.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/b409b7c0d05217ea37f0036691c891ca.png)
 
 我再来举个例子，用没那么正式的语言介绍这个概念。假设你想要对输入特征计算异或或是奇偶性，你可以算$x_{1}XOR x_{2} XOR x_{3} XOR ……x_{n}$，假设你有$n$或者$n_{x}$个特征，如果你画一个异或的树图，先要计算$x_{1}$，$x_{2}$的异或，然后是$x_{3}$和$x_{4}$。技术上来说如果你只用或门，还有非门的话，你可能会需要几层才能计算异或函数，但是用相对小的电路，你应该就可以计算异或了。然后你可以继续建这样的一个异或树图（上图左），那么你最后会得到这样的电路来输出结果$y$，$\hat{y}=y$，也就是输入特征的异或，或是奇偶性，要计算异或关系。这种树图对应网络的深度应该是$O(log(n))$，那么节点的数量和电路部件，或是门的数量并不会很大，你也不需要太多门去计算异或。
 
@@ -196,7 +196,7 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 这周的前几个视频和之前几周的视频里，你已经看到过正向反向传播的基础组成部分了，它们也是深度神经网络的重要组成部分，现在我们来用它们建一个深度神经网络。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/2922198c51ca18fb64dcc7f4cc46d507.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/2922198c51ca18fb64dcc7f4cc46d507.png)
 
 这是一个层数较少的神经网络，我们选择其中一层（方框部分），从这一层的计算着手。在第$l$层你有参数$W^{[l]}$和$b^{[l]}$，正向传播里有输入的激活函数，输入是前一层$a^{[l-1]}$，输出是$a^{[l]}$，我们之前讲过$z^{[l]} =W^{[l]}a^{[l-1]} +b^{[l]}$,$a^{[l]} =g^{[l]}(z^{[l]})$，那么这就是你如何从输入$a^{[l-1]}$走到输出的$a^{[l]}$。之后你就可以把$z^{[l]}$的值缓存起来，我在这里也会把这包括在缓存中，因为缓存的$z^{[i]}$对以后的正向反向传播的步骤非常有用。
 
@@ -204,15 +204,15 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 这就是基本的正向步骤的结构，我把它成为称为正向函数，类似的在反向步骤中会称为反向函数。总结起来就是，在 l 层，你会有正向函数，输入$a^{[l-1]}$并且输出$a^{[l]}$，为了计算结果你需要用$W^{[l]}$和$b^{[l]}$，以及输出到缓存的$z^{[l]}$。然后用作反向传播的反向函数，是另一个函数，输入$da^{[l]}$，输出$da^{[l-1]}$，你就会得到对激活函数的导数，也就是希望的导数值$da^{[l]}$。$a^{[l-1]}$是会变的，前一层算出的激活函数导数。在这个方块（第二个）里你需要$W^{[l]}$和$b^{[l]}$，最后你要算的是$dz^{[l]}$。然后这个方块（第三个）中，这个反向函数可以计算输出$dW^{[l]}$和$db^{[l]}$。我会用红色箭头标注标注反向步骤，如果你们喜欢，我可以把这些箭头涂成红色。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/f1c14c92b1735648c05db7741f7d2871.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/f1c14c92b1735648c05db7741f7d2871.png)
 
 然后如果实现了这两个函数（正向和反向），然后神经网络的计算过程会是这样的：
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/0b59199835620b12c781b3190a3fca1c.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/0b59199835620b12c781b3190a3fca1c.png)
 
 把输入特征$a^{[0]}$，放入第一层并计算第一层的激活函数，用$a^{[1]}$表示，你需要$W^{[1]}$和$b^{[1]}$来计算，之后也缓存$z^{[l]}$值。之后喂到第二层，第二层里，需要用到$W^{[2]}$和$b^{[2]}$，你会需要计算第二层的激活函数$a^{[2]}$。后面几层以此类推，直到最后你算出了$a^{[L]}$，第$L$层的最终输出值$\hat y$。在这些过程里我们缓存了所有的$z$值，这就是正向传播的步骤。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/be2f6c7a8ff3c58e952208d5d59b19ce.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/be2f6c7a8ff3c58e952208d5d59b19ce.png)
 
 对反向传播的步骤而言，我们需要算一系列的反向迭代，就是这样反向计算梯度，你需要把$da^{[L]}$的值放在这里，然后这个方块会给我们${da}^{[L-1]}$的值，以此类推，直到我们得到${da}^{[2]}$和${da}^{[1]}$，你还可以计算多一个输出值，就是${da}^{[0]}$，但这其实是你的输入特征的导数，并不重要，起码对于训练监督学习的权重不算重要，你可以止步于此。反向传播步骤中也会输出$dW^{[l]}$和$db^{[l]}$，这会输出$dW^{[3]}$和$db^{[3]}$等等。目前为止你算好了所有需要的导数，稍微填一下这个流程图。
 
@@ -232,11 +232,11 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 实际上深度学习有很多不同的超参数，之后我们也会介绍一些其他的超参数，如**momentum**、**mini batch size**、**regularization parameters**等等。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/db01a2dc79c2fa25a5d63bbee8a2cbd1.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/db01a2dc79c2fa25a5d63bbee8a2cbd1.png)
 
 如何寻找超参数的最优值？
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/ae4feaf4f2a54f43f11639570a7caa45.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/ae4feaf4f2a54f43f11639570a7caa45.png)
 
 走**Idea—Code—Experiment—Idea**这个循环，尝试各种不同的参数，实现模型并观察是否成功，然后再迭代。
 
@@ -266,7 +266,7 @@ ${A}^{[l]}$：$({n}^{[l]},m)$，${A}^{[0]} = X =({n}^{[l]},m)$
 
 深度学习的确是个很好的工具来学习各种很灵活很复杂的函数，学习到从$x$到$y$的映射，在监督学习中学到输入到输出的映射。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/dba07501564b5a11b80c6cca8e5bec14.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/dba07501564b5a11b80c6cca8e5bec14.png)
 
 但这个类比还是很粗略的，这是一个**logistic**回归单元的**sigmoid**激活函数，这里是一个大脑中的神经元，图中这个生物神经元，也是你大脑中的一个细胞，它能接受来自其他神经元的电信号，比如$x_1,x_2,x_3$，或可能来自于其他神经元$a_1,a_2,a_3$ 。其中有一个简单的临界计算值，如果这个神经元突然激发了，它会让电脉冲沿着这条长长的轴突，或者说一条导线传到另一个神经元。
 

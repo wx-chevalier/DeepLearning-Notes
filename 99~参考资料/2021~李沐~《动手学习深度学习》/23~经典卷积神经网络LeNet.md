@@ -8,7 +8,7 @@
   - 人们希望可以用支票自动取钱
 - 该模型在 80 年代末的银行被真正的部署
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/23/23-01.png" alt="image" width="500" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/23/23-01.png" alt="image" width="500" />
 
 #### 1.2 MNIST
 
@@ -18,11 +18,11 @@
 - 图像大小为 28\*28
 - 10 类
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/23/23-02.png" alt="image" width="500" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/23/23-02.png" alt="image" width="500" />
 
 #### 1.3 LeNet 的具体模型
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/23/23-03.png" alt="image" width="1000" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/23/23-03.png" alt="image" width="1000" />
 
 #### 1.4 总结
 
@@ -151,7 +151,7 @@ lr, num_epochs = 0.9, 10
 train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 ```
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/23/23-04.png" alt="image" width="300" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/23/23-04.png" alt="image" width="300" />
 
 #### 2.3 总结
 

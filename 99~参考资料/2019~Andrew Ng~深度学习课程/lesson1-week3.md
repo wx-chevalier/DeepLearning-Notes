@@ -8,7 +8,7 @@
 
 现在我们开始快速浏览一下如何实现神经网络。上周我们讨论了逻辑回归，我们了解了这个模型(见图 3.1.1)如何与下面公式 3.1 建立联系。
 图 3.1.1 :
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_1.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_1.png)
 
 公式 3.1：
 
@@ -42,7 +42,7 @@ $$
 
 神经网络看起来是如下这个样子（图 3.1.2）。正如我之前已经提到过，你可以把许多**sigmoid**单元堆叠起来形成一个神经网络。对于图 3.1.1 中的节点，它包含了之前讲的计算的两个步骤：首先通过公式 3.1 计算出值$z$，然后通过$\sigma(z)$计算值$a$。
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_2.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_2.png)
 
 图 3.1.2
 
@@ -110,7 +110,7 @@ $$
 
 我们首先关注一个例子，本例中的神经网络只包含一个隐藏层（图 3.2.1）。这是一张神经网络的图片，让我们给此图的不同部分取一些名字。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_3.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_3.png)
 
 图 3.2.1
 
@@ -133,7 +133,7 @@ $$
 
 最后输出层将产生某个数值$a$，它只是一个单独的实数，所以的$\hat{y}$值将取为$a^{[2]}$。这与逻辑回归很相似，在逻辑回归中，我们有$\hat{y}$直接等于$a$，在逻辑回归中我们只有一个输出层，所以我们没有用带方括号的上标。但是在神经网络中，我们将使用这种带上标的形式来明确地指出这些值来自于哪一层，有趣的是在约定俗成的符号传统中，在这里你所看到的这个例子，只能叫做一个两层的神经网络（图 3.2.2）。原因是当我们计算网络的层数时，输入层是不算入总层数内，所以隐藏层是第一层，输出层是第二层。第二个惯例是我们将输入层称为第零层，所以在技术上，这仍然是一个三层的神经网络，因为这里有输入层、隐藏层，还有输出层。但是在传统的符号使用中，如果你阅读研究论文或者在这门课中，你会看到人们将这个神经网络称为一个两层的神经网络，因为我们不将输入层看作一个标准的层。
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_4.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_4.png)
 图 3.2.2
 
 最后，我们要看到的隐藏层以及最后的输出层是带有参数的，这里的隐藏层将拥有两个参数$W$和$b$，我将给它们加上上标$^{[1]}$($W^{[1]}$,$b^{[1]}$)，表示这些参数是和第一层这个隐藏层有关系的。之后在这个例子中我们会看到$W$是一个 4x3 的矩阵，而$b$是一个 4x1 的向量，第一个数字 4 源自于我们有四个结点或隐藏层单元，然后数字 3 源自于这里有三个输入特征，我们之后会更加详细地讨论这些矩阵的维数，到那时你可能就更加清楚了。相似的输出层也有一些与之关联的参数$W^{[2]}$以及$b^{[2]}$。从维数上来看，它们的规模分别是 1x4 以及 1x1。1x4 是因为隐藏层有四个隐藏层单元而输出层只有一个单元，之后我们会对这些矩阵和向量的维度做出更加深入的解释，所以现在你已经知道一个两层的神经网络什么样的了，即它是一个只有一个隐藏层的神经网络。
@@ -146,7 +146,7 @@ $$
 
 首先，回顾下只有一个隐藏层的简单两层**神经网络结构**：
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_5.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_5.png)
 图 3.3.1
 
 其中，$x$表示输入特征，$a$表示每个神经元的输出，$W$表示特征的权重，上标表示神经网络的层数（隐藏层为 1），下标表示该层的第几个神经元。这是神经网络的**符号惯例**，下同。
@@ -155,7 +155,7 @@ $$
 
 关于神经网络是怎么计算的，从我们之前提及的逻辑回归开始，如下图所示。用圆圈表示神经网络的计算单元，逻辑回归的计算有两个步骤，首先你按步骤计算出$z$，然后在第二步中你以**sigmoid**函数为激活函数计算$z$（得出$a$），一个神经网络只是这样子做了好多次重复计算。
 
-![](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_6.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_6.png)
 图 3.3.2
 
 回到两层的神经网络，我们从隐藏层的第一个神经元开始计算，如上图第一个最上面的箭头所指。从上图可以看出，输入与逻辑回归相似，这个神经元的计算与逻辑回归一样分为两步，小圆圈代表了计算的两个步骤。
@@ -247,7 +247,7 @@ $$
 
 对于神经网络的第一层，给予一个输入$x$，得到$a^{[1]}$，$x$可以表示为$a^{[0]}$。通过相似的衍生你会发现，后一层的表示同样可以写成类似的形式，得到$a^{[2]}$，$\hat{y} = a^{[2]}$，具体过程见公式 3.8、3.9。
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_7.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_7.png)
 图 3.3.3
 
 如上图左半部分所示为神经网络，把网络左边部分盖住先忽略，那么最后的输出单元就相当于一个逻辑回归的计算单元。当你有一个包含一层隐藏层的神经网络，你需要去实现以计算得到输出的是右边的四个等式，并且可以看成是一个向量化的计算过程，计算出隐藏层的四个逻辑回归单元和整个隐藏层的输出结果，如果编程实现需要的也只是这四行代码。
@@ -263,7 +263,7 @@ $$
 
 逻辑回归是将各个训练样本组合成矩阵，对矩阵的各列进行计算。神经网络是通过对逻辑回归中的等式简单的变形，让神经网络计算出输出值。这种计算是所有的训练样本同时进行的，以下是实现它具体的步骤：
 
-![w800](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_8.png)
+![w800](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_8.png)
 图 3.4.1
 
 上一节视频中得到的四个等式。它们给出如何计算出$z^{[1]}$，$a^{[1]}$，$z^{[2]}$，$a^{[2]}$。
@@ -496,7 +496,7 @@ $ a =max( 0,z) $
 
 这个函数通常比**Relu**激活函数效果要好，尽管在实际中**Leaky ReLu**使用的并不多。
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_9.jpg)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_9.jpg)
 图 3.6.1
 
 两者的优点是：
@@ -555,7 +555,7 @@ $a^{[2]} = z^{[2]} = W^{'}x + b^{'} $
 
 1）**sigmoid activation function**
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_10.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_10.png)
 图 3.8.1
 
 其具体的求导如下：
@@ -572,7 +572,7 @@ $\frac{d}{dz}g(z) = {\frac{1}{1 + e^{-z}} (1-\frac{1}{1 + e^{-z}})}=g(z)(1-g(z))
 
 2. **Tanh activation function**
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_11.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_11.png)
 图 3.8.2
 
 其具体的求导如下：
@@ -591,7 +591,7 @@ $\frac{d}{{d}z}g(z) = 1 - (tanh(z))^{2}$
 
 3）**Rectified Linear Unit (ReLU)**
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_12.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_12.png)
 $g(z) =max (0,z)$
 
 $$
@@ -809,7 +809,7 @@ $db^{[1]} = {\frac{1}{m}}np.sum(dZ^{[1]},axis=1,keepdims=True) $
 因此与一个隐藏层相关的矩阵，或者说$W^{[1]}$是 2\*2 的矩阵，假设把它初始化为 0 的 2\*2 矩阵，$b^{[1]}$也等于 $[0\;0]^T$，把偏置项$b$初始化为 0 是合理的，但是把$w$初始化为 0 就有问题了。
 那这个问题如果按照这样初始化的话，你总是会发现$a_{1}^{[1]}$ 和 $a_{2}^{[1]}$相等，这个激活单元和这个激活单元就会一样。因为两个隐含单元计算同样的函数，当你做反向传播计算时，这会导致$\text{dz}_{1}^{[1]}$ 和 $\text{dz}_{2}^{[1]}$也会一样，对称这些隐含单元会初始化得一样，这样输出的权值也会一模一样，由此$W^{[2]}$等于$[0\;0]$；
 
-![w600](https://assets.ng-tech.icu/book/Andrew-Ng-DeepLearning-AI/L1_week3_13.png)
+![w600](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/L1_week3_13.png)
 
 图 3.11.1
 但是如果你这样初始化这个神经网络，那么这两个隐含单元就会完全一样，因此他们完全对称，也就意味着计算同样的函数，并且肯定的是最终经过每次训练的迭代，这两个隐含单元仍然是同一个函数，令人困惑。$dW$会是一个这样的矩阵，每一行有同样的值因此我们做权重更新把权重$W^{[1]}\implies{W^{[1]}-adW}$每次迭代后的$W^{[1]}$，第一行等于第二行。

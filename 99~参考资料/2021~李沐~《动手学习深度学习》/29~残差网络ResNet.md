@@ -22,9 +22,9 @@
 - 为了得到更近似真正*f*∗ 的函数我们需要设计一个更强大的架构 F'，但是如果先前的框架 F 不包含于新框架 F‘中就可能导致如下图中左侧的最优函数离实际预测函数误差反而随框架边强而增大，这不是我们期望的结果，所以我们选择使用下图中右侧的嵌套函数类以解决这个问题
 - 引入方法：对于深度神经网络，如果我们能将新添加的层训练成*恒等映射*（identity function）_f_(**x**)=**x**，新模型和原模型将同样有效。同时，由于新模型可能得出更优的解来拟合训练数据集，因此添加层似乎更容易降低训练误差。
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/29/29-01.png" alt="image" style="zoom: ;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/29/29-01.png" alt="image" style="zoom: ;" />
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/29/29-02.png" alt="image" style="zoom: ;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/29/29-02.png" alt="image" style="zoom: ;" />
 
 #### 残差块
 
@@ -75,7 +75,7 @@ class Residual(nn.Module):
         return F.relu(Y)
 ```
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/29/29-03.png" alt="image" style="zoom: ;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/29/29-03.png" alt="image" style="zoom: ;" />
 
 #### ResNet 模型
 
@@ -121,7 +121,7 @@ net = nn.Sequential(b1, b2, b3, b4, b5,
 
 - 每个模块有 4 个卷积层（不包括恒等映射的 1×1 卷积层）。加上第一个 7×7 卷积层和最后一个全连接层，共有 18 层。因此，这种模型通常被称为 ResNet-18。通过配置不同的通道数和模块里的残差块数可以得到不同的 ResNet 模型，例如更深的含 152 层的 ResNet-152。虽然 ResNet 的主体架构跟 GoogLeNet 类似，但 ResNet 架构更简单，修改也更方便。这些因素都导致了 ResNet 迅速被广泛使用。
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/29/29-04.png" alt="image" style="zoom: ;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/29/29-04.png" alt="image" style="zoom: ;" />
 
 #### 训练模型
 
@@ -133,7 +133,7 @@ train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size, resize=96)
 d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 ```
 
-<img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/29/29-05.png" alt="image" style="zoom: ;" />
+<img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/29/29-05.png" alt="image" style="zoom: ;" />
 
 #### 总结
 

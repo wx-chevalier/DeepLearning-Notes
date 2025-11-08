@@ -39,13 +39,13 @@
 - 数据的增长，硬件的计算能力奠定了人们对于方法的选择
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-01.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-01.png" alt="image" align="center" width="500"/>
 </div>
 
 #### 1.5 ImageNet（2010）
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-02.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-02.png" alt="image" align="center" width="500"/>
 </div>
 
 - AlexNet 赢得了 2012 年 ImageNet 竞赛冠军
@@ -59,21 +59,21 @@
 - 影响：计算机视觉方法论的改变，从人工提取特征过渡到 CNN 学习特征
 
   <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-03.png" alt="image" align="center" width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-03.png" alt="image" align="center" width="500"/>
   </div>
 
 ### 2.AlexNet 架构
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-04.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-04.png" alt="image" align="center" width="500"/>
 </div>
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-05.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-05.png" alt="image" align="center" width="500"/>
 </div>
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-06.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-06.png" alt="image" align="center" width="500"/>
 </div>
 
 - 网络代码
@@ -111,14 +111,14 @@ net = nn.Sequential(
   - 数据增强，将一张图片进行变化，选取多个位置、光照之类的。
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-07.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-07.png" alt="image" align="center" width="500"/>
 </div>
 
 - 复杂度对比
   - 参数个数增加，每次更新数据增加
 
 <div align="center">
-  <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/24/24-08.png" alt="image" align="center" width="500"/>
+  <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/24/24-08.png" alt="image" align="center" width="500"/>
 </div>
 
 ### 3.总结

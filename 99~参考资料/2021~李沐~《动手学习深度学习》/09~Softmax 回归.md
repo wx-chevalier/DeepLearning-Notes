@@ -29,7 +29,7 @@
 - 分类预测一个离散类别
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-01.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-01.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 1.1 从回归到多类分类：
@@ -41,7 +41,7 @@
 - 跟真实值的区别作为损失
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-02.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-02.png" alt="image" align="center"width="500"/>
 </div>
 
 ##### 分类：
@@ -51,7 +51,7 @@
 - 输出 i 是预测为第 i 类的置信度
 
   <div align="center">
-      <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-03.png" alt="image" align="center"width="500"/>
+      <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-03.png" alt="image" align="center"width="500"/>
   </div>
 
 ##### 均方损失：
@@ -123,7 +123,7 @@
 ### 2.损失函数
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-04.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-04.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.1 L2 Loss
@@ -133,7 +133,7 @@ l(y,y^{'})=\frac{1}{2}(y-y^{'})^2
 )
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-05.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-05.png" alt="image" align="center"width="500"/>
 </div>
 
 > 梯度会随着结果逼近而下降
@@ -145,7 +145,7 @@ l(y,y^{'})=\lvert y-y^{'}\rvert
 )
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-06.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-06.png" alt="image" align="center"width="500"/>
 </div>
 
 > 梯度保持不变，但在 0 处梯度随机
@@ -153,7 +153,7 @@ l(y,y^{'})=\lvert y-y^{'}\rvert
 #### 2.3Huber's Robust Loss
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-07.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-07.png" alt="image" align="center"width="500"/>
 </div>
 
 > 结合 L1 Loss 和 L2 Loss 的优点
@@ -187,7 +187,7 @@ l(y,y^{'})=\lvert y-y^{'}\rvert
   ```
 
   <div align="center">
-      <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-08.png" alt="image" align="center"width="500"/>
+      <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-08.png" alt="image" align="center"width="500"/>
   </div>
 
 ### 4.从零实现 softmax 回归
@@ -305,7 +305,7 @@ def softmax(X):
    ```
 
    <div align="center">
-       <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/09/09-09.png" alt="image" align="center"width="500"/>
+       <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/09/09-09.png" alt="image" align="center"width="500"/>
    </div>
 
 ### 5.softmax 的简洁实现

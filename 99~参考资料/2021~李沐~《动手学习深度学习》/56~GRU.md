@@ -5,7 +5,7 @@
 - 不是每个观察值都是同等重要
 
 <div align="center">
-    <img src='https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/56/56-01.png' width="600" />
+    <img src='https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/56/56-01.png' width="600" />
 </div>
 
 比如上图中的序列，若干个猫中出现了一个鼠，那么我们应该重点关注这个鼠，而中间重复出现的猫则减少关注。文本序列同理，通常长文本我们需要关注的是几个关键词，关键句。
@@ -22,13 +22,13 @@
 - 门本来是电路中的一个概念，0,1 代表不同的电平，可以用于控制电路的通断。此处 sigmoid 将门的数值归一化到 0 到 1 之间，是一种"软更新"方式。而从后面的公式上可以看出，本讲课程采用的是低电平有效（越靠近 0，门的作用越明显）的方式控制。
 
 <div align='center'>
-    <img src='https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/56/56-02.png' width='500' />
+    <img src='https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/56/56-02.png' width='500' />
 </div>
 
 ### 3. 候选隐状态
 
 <div align='center'>
-    <img src='https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/56/56-03.png' width='500' />
+    <img src='https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/56/56-03.png' width='500' />
 </div>
 
 - 候选隐状态，如果抛开公式中的$R_{t}$遗忘门来说，这个和之前 RNN 中计算当前步的隐状态没有差别。
@@ -44,7 +44,7 @@
 ### 4. 隐状态
 
 <div align='center'>
-    <img src='https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/56/56-04.png' width='500' />
+    <img src='https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/56/56-04.png' width='500' />
 </div>
 
 用更新门对**候选隐状态**和**前一隐状态**做加权，得到当前步**隐状态**的值。
@@ -56,7 +56,7 @@
 ### 5. 总结
 
 <div align="center">
-    <img src='https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/56/56-05.png' width='500' />
+    <img src='https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/56/56-05.png' width='500' />
 </div>
 
 上图四行公式概括了 GRU 模型。在 RNN 的基础上，最重要的是引入了**更新门和重置门**，来决定前一隐状态对当前隐状态的影响。以最开始的猫鼠序列的例子来说，如果我的模型一直看到猫，模型可以学习到隐状态不怎么去更新，于是隐状态一直保留了猫的信息，而看到老鼠，隐状态才进行更新。

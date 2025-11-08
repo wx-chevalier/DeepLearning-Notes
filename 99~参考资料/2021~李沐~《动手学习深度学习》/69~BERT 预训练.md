@@ -43,7 +43,7 @@
 - 新的任务只需要增加一个简单地输出层
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/69/69-1.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/69/69-1.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.3 BERT 架构
@@ -63,7 +63,7 @@
 - 位置编码可学习
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/69/69-2.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/69/69-2.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.5 预训练任务
@@ -73,7 +73,7 @@
 - Transformer 的编码器是双向的，标准语言模型要求单向
 - 带掩码的语言模型每次随机（15%概率）将一些词元换成<mask>
 - <div align="center">
-      <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-5.png" alt="image" align="center"width="500"/>
+      <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-5.png" alt="image" align="center"width="500"/>
   </div>
 
 ##### 2.5.2 下一个句子预测
@@ -122,7 +122,7 @@ def get_tokens_and_segments(tokens_a, tokens_b=None):
 BERT 选择 Transformer 编码器作为其双向架构。在 Transformer 编码器中常见是，位置嵌入被加入到输入序列的每个位置。然而，与原始的 Transformer 编码器不同，BERT 使用*可学习的*位置嵌入。总之，下图表明 BERT 输入序列的嵌入是词元嵌入、片段嵌入和位置嵌入的和。
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/69/69-3.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/69/69-3.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 3.2 BERT 实现

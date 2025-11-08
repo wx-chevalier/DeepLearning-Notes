@@ -21,7 +21,7 @@
 这三个门的算式和普通 RNN 计算 Ht 算式相同。
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-1.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-1.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.2 候选记忆单元
@@ -31,7 +31,7 @@
 相当于在 ht-1 到 ht 的预测中又加了一层隐藏单元
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-2.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-2.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.2 记忆单元
@@ -41,7 +41,7 @@
 如果遗忘门始终为\(1\)且输入门始终为\(0\)，则过去的记忆元 将随时间被保存并传递到当前时间步。引入这种设计是为了缓解梯度消失问题，并更好地捕获序列中的长距离依赖关系。
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-3.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-3.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.3 隐状态
@@ -53,7 +53,7 @@
 只要输出门接近 1，我们就能够有效地将所有记忆信息传递给预测部分，而对于输出门接近\(0\)，我们只保留记忆元内的所有信息，而不需要更新隐状态。
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-4.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-4.png" alt="image" align="center"width="500"/>
 </div>
 
 #### 2.4 总结
@@ -155,7 +155,7 @@ d2l.train_ch8(model, train_iter, vocab, lr, num_epochs, device)
 ```
 
 <div align="center">
-    <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/57/57-5.png" alt="image" align="center"width="500"/>
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/57/57-5.png" alt="image" align="center"width="500"/>
 </div>
 
 ### Q&A

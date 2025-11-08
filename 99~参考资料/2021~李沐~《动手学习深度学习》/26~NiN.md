@@ -8,7 +8,7 @@
 - 而卷积层后的第一个**全连接层**的**参数较多**
 
 <div align="center">
-   <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/26/26-01.png" alt="image" width="500" />
+   <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/26/26-01.png" alt="image" width="500" />
 </div>
 
 以 VGG 为例(图示)，全连接层需要先 Flatten，输入维度为 512x7x7，输出维度为 4096，则需要参数个数为 512x7x7x4096=102M。
@@ -18,7 +18,7 @@
 - 核心思想：一个卷积层后面跟两个 1x1 的卷积层，后两层起到全连接层的作用。
 
 <div align="center">
-   <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/26/26-02.png" alt="image" width="500" />
+   <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/26/26-02.png" alt="image" width="500" />
 </div>
 
 ### 3. NiN 架构
@@ -32,7 +32,7 @@
 ### 4. NiN Networks
 
 <div align="center">
-   <img src="https://assets.ng-tech.icu/book/DeepLearning-MuLi-Notes/imgs/26/26-03.png" alt="image" width="500" />
+   <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/DeepLearning-MuLi-Notes/imgs/26/26-03.png" alt="image" width="500" />
 </div>
 
 NiN 架构如上图右边所示，若干个 NiN 块(图示中为 4 个块)+池化层；前 3 个块后接最大池化层，最后一块连接一个全局平均池化层。

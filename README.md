@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/wx-chevalier/DeepLearning-Notes">
-    <img src="https://assets.ng-tech.icu/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
+    <img src="https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
@@ -28,13 +28,13 @@
 
 在深度学习篇中，我们将了解深度学习的历史与理论。深度学习的起点即是所谓的神经网络（Neural Network）。
 
-![mindmap](https://assets.ng-tech.icu/item/20230416203618.png)
+![mindmap](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230416203618.png)
 
 # NN | 神经网络基础
 
 神经网络层的基本组成成员为神经元，神经元包含两部分，一部分是上一层网络输出和当前网络层参数的一个线性乘积，另外一部分是线性乘积的非线性转换；如果缺少非线性转换，则多层线性乘积可以转化为一层的线性乘积。
 
-![](https://assets.ng-tech.icu/item/20230525221608.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230525221608.png)
 
 $$
 \begin{array}{l}{\mathrm{H}(\mathrm{in})=\Sigma=\mathrm{W}_{1} \star \mathrm{x}_{1}+\mathrm{W}_{2} \star \mathrm{x}_{2}+\mathrm{W}_{3} \star \mathrm{x}_{3}+\mathrm{b}} \\ {\mathrm{H}(\mathrm{out})=\sigma(\Sigma)}\end{array}
@@ -42,11 +42,11 @@ $$
 
 一个神经网络结构通常包含输入层，隐藏层，输出层。输入层是我们的 特征（features），输出层是我们的预测（prediction）。神经网络的目的是拟合一个函数 $f*: features -> prediction$，在训练期间，通过减小 prediction 和 实际 label 的差异的这种方式, 来更改网络参数，来使当前的网络能逼近于理想的函数 $f*$。而对于仅有单个隐藏层的神经网络，我们称为浅层神经网络：
 
-![](https://assets.ng-tech.icu/item/20230526135859.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230526135859.png)
 
 相对于浅层网络结构，有两层，三层及以上隐藏层的我们就可以称为深度网络：
 
-![](https://assets.ng-tech.icu/item/20230616143204.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143204.png)
 
 在通常的理解中，一个足够宽的网络，是能够拟合任何函数的。而一个深层网络，则能够用更少的参数来拟合该函数，因为深层的神经元可以获取比浅层神经元更复杂的特征表示。
 
@@ -58,15 +58,15 @@ $$
 
 卷积网络神经元只和上一层的部分神经元输出是连接的，在直觉上，是因为人的视觉神经元触突只对局部信息敏感，而不是全局所有信息都对同一个触突产生等价作用。
 
-![](https://assets.ng-tech.icu/item/20230416203339.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230416203339.png)
 
 同一个卷积核从左到右，从上到下和输入做乘积，得到了不同强度的输出。从直觉上来理解，卷积核对原始数据的不同数据分布的敏感度是不一样的。如果把卷积核理解为是某种模式, 那么符合这种模式 的数据分布会得到比较强的输出，而不符合这种模式 的输出则得到弱的，甚至是不输出。
 
-![](https://assets.ng-tech.icu/item/20230416204737.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230416204737.png)
 
 一个卷积核是一个模式提取器，多个卷积核就是多个模式提取器。通过多个特征提取器对原始数据做特征提取转换，就构成了一层卷积。
 
-![](https://assets.ng-tech.icu/item/20230417211021.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230417211021.png)
 
 Alex Net, 因为 GPU 内存的原因，Alex 使用了两块 GPU 对模型做了切割，本质上的卷积层是用于特征提取，最大池化层用于提取强特征及减少参数，全连接层则是所有高级特征参与到最后分类决策中去。
 
@@ -74,7 +74,7 @@ Alex Net, 因为 GPU 内存的原因，Alex 使用了两块 GPU 对模型做了�
 
 CNN 是对空间上特征的提取，RNN 则是对时序上特征的提取。在直觉上，我们理解 RNN 网络是一个可模拟任何函数的一个神经网络(action)，加上同时有一份自己的历史存储(memory)，action+memory 两者让 RNN 成为了一个图灵机器。
 
-![](https://assets.ng-tech.icu/item/20230417210948.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230417210948.png)
 
 在 RNN 中，$x_1$, $x_2$, $x_3$, $x_t$ 是在时序上不一样的输入，而 $V$，$U$，$W$ 三个矩阵则是共享。同时 RNN 网络中保存了自己的状态 $S$。$S$ 随着输入而改变，不同的输入/不同时刻的输入或多或少影响 RNN 网络的状态 $S$。而 RNN 网络的状态 $S$ 则决定最后的输出。
 
@@ -82,13 +82,13 @@ CNN 是对空间上特征的提取，RNN 则是对时序上特征的提取。在
 
 RNN 的问题是非线性操作 $σ$ 的存在且每一步间通过连乘操作传递，会导致长序列历史信息不能很好的传递到最后，而有了 LSTM 网络。
 
-![](https://assets.ng-tech.icu/item/20230416203644.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230416203644.png)
 
 在 LSTM Cell 中，包含了通常意义上的遗忘门（点乘，决定什么要从状态中去除），输入更新门（按位相加，决定什么要添加到状态中去），输出门（点乘，决定状态的输出是什么）。
 
 LSTM 本质上是矩阵的运算，后续 LSTM 的变种 GRU 如下：
 
-![](https://assets.ng-tech.icu/item/20230616143306.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143306.png)
 
 # NLP | 自然语言处理
 
@@ -98,7 +98,7 @@ CNN 在计算机识别领域中应用广泛，其捕捉局部特征的能力非�
 
 从直观上理解，TextCNN 通过一维卷积来获取句子中 n-gram 的特征表示。TextCNN 对文本浅层特征的抽取能力很强，在短文本领域如搜索、对话领域专注于意图分类时效果很好，应用广泛，且速度快，一般是首选；对长文本领域，TextCNN 主要靠 filter 窗口抽取特征，在长距离建模方面能力受限，且对语序不敏感。
 
-![](https://assets.ng-tech.icu/item/20230616143330.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143330.png)
 
 文本卷积与图像卷积的不同之处在于只在文本序列的一个方向做卷积。对句子单词每个可能的窗口做卷积操作得到特征图(feature map)。
 
@@ -114,11 +114,11 @@ Attention 此前就被用于众多 NLP 的任务，用于定位关键 token 或�
 
 以 N=2 示例，Encoder 阶段：输入“Thinking Machines”，对应词向量,叠加位置向量 Positional Encoding，对每个位置做 Self-Attention 得到; Add&Norm 分两步,residual connection 即,layer Normalization 得到新的,对每个位置分别做 feed forward 全连接和 Add&Norm，得到一个 Encoder Layer 的输出，重复堆叠 2 次，最后将 Encoder Layer 输出到 Decoder 的 Encoder-Decoder Layer 层。
 
-![](https://assets.ng-tech.icu/item/20230616143356.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143356.png)
 
 Decoder 阶段：先是对 Decoder 的输入做 Masked Self-Attention Layer,然后将 Encoder 阶段的输出与 Decoder 第一级的输出做 Encoder-Decoder Attention,最后接 FFN 全连接，堆叠 2 个 Decoder,最后接全连接+Softmax 输出当前位置概率最大的的词。
 
-![](https://assets.ng-tech.icu/item/20230616143440.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143440.png)
 
 Transformer 的优点：
 
@@ -140,7 +140,7 @@ BERT (Bidirectional Encoder Representations from Transformers)本质来讲是 NL
 
 BERT 网络结构如下所示，BERT 与 Transformer 的 Encoder 网络结构完全相同。假设 Embedding 向量的维度是，输入序列包含 n 个 token，则 BERT 模型一个 layer 的输入是一个的矩阵，而它的输出也同样是一个的矩阵，所以这样 N 层 BERT layer 就可以很方便的首尾串联起来。BERT 的 large model 使用了 N=24 层这样的 Transformer block。
 
-![](https://assets.ng-tech.icu/item/20230616143503.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230616143503.png)
 
 BERT 的主要贡献有以下几个方面
 

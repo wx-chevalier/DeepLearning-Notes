@@ -392,7 +392,7 @@
 
 **附件**
 
-[人工智能大师访谈](interview.md)
+[人工智能大师访谈](02~算法/01~传统%20AI/DeepLearning-Notes/99~参考资料/2019~Andrew%20Ng~深度学习课程/interview.md)
 
 吴恩达采访 Geoffery Hinton
 

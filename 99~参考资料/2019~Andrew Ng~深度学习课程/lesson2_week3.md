@@ -433,7 +433,7 @@ $J( w^{[1]},b^{[1]},\ldots\ldots) = \frac{1}{m}\sum_{i = 1}^{m}{L( \hat y^{(i)},
 
 我在我的**Jupyter notebook**中运行**Python**，
 
-```
+```python
 import numpy as np
 import tensorflow as tf
 #导入TensorFlow
@@ -466,11 +466,10 @@ session.run(w)
 
 print(session.run(w))
 
-```
-
+```python
 所以如果我们运行这个，它评估$w$等于 0，因为我们什么都还没运行。
 
-```
+```python
 #现在让我们输入：
 
 $session.run(train)，它所做的就是运行一步梯度下降法。
@@ -478,8 +477,7 @@ $session.run(train)，它所做的就是运行一步梯度下降法。
 
 print(session.run(w))
 #在一步梯度下降法之后，w现在是0.1。
-```
-
+```python
 ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/66541b3ff40c4c43897a062395420cfa.png)
 
 现在我们运行梯度下降 1000 次迭代：

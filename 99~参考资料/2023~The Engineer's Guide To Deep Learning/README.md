@@ -13,7 +13,7 @@ matplotlib                   3.9.0
 tensorflow                   2.15.1
 tensorflow-metal             1.1.0
 scikit-learn                 1.5.0
-```python
+```
 To ensure compatibility, please create the environment using the above versions before running the program.
 
 ### Note
@@ -47,7 +47,7 @@ Here's how I installed it on M1 Mac:
 ```python
 $ pyenv install 3.11.5
 $ pyenv global 3.11.5
-```python
+```
 #### [2] Installing TensorFlow under venv
 
 ```python
@@ -57,4 +57,4 @@ $ python -m pip install -U pip
 $ pip install tensorflow==2.15.1
 $ pip install tensorflow-metal==1.1.0
 $ pip install matplotlib==3.9.0
-```python
+```

@@ -237,8 +237,6 @@ $10×1+10×1+10×1+10×0+10×0+10×0+0×(-1)+0×(-1)+ 0×(-1)=30$。
 
 总结一下维度情况，如果你有一个$n×n$的矩阵或者$n×n$的图像，与一个$f×f$的矩阵卷积，或者说$f×f$的过滤器。**Padding**是$p$，步幅为$s$没输出尺寸就是这样：
 
-![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/58810d826a00657957640fb931f792a7.png)
-
 可以选择所有的数使结果是整数是挺不错的，尽管一些时候，你不必这样做，只要向下取整也就可以了。你也可以自己选择一些$n$，$f$，$p$和$s$的值来验证这个输出尺寸的公式是对的。
 
 ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Andrew-Ng-DeepLearning-AI/197a4ff81c7e793962516fc6e636830a.png)
